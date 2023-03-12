@@ -383,7 +383,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.507
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3626,7 +3626,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
+            m_IntArgument: 8
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -6725,15 +6725,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71216805f1f58554da2c830c04606871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item1Level: 0
-  item2Level: 0
-  item3Level: 0
-  item4level: 0
-  item51evel: 0
-  item6Level: 0
-  item7Level: 0
-  item8Level: 0
-  item9Level: 0
+  itemNo: 0
+  item1Level: 1
+  item2Level: 1
+  item3Level: 1
+  item4level: 1
+  item51evel: 1
+  item6Level: 1
+  item7Level: 1
+  item8Level: 1
+  item9Level: 1
   textItem1: {fileID: 1153726639}
   textItem2: {fileID: 1414887839}
   textItem3: {fileID: 726608805}
@@ -6747,4 +6748,4 @@ MonoBehaviour:
   sfx1: {fileID: 8300000, guid: f1da84fa5ed95594d94adc2f1ec9ab82, type: 3}
   sfx2: {fileID: 8300000, guid: a781501421a5d7842bd47330fea236eb, type: 3}
   sfx3: {fileID: 8300000, guid: 22c966da44e17a242b708ac3010b9937, type: 3}
-  itemPriceArray: 000000000000000000000000000000000000000000000000000000000000000000000000
+  itemPriceArray: 02000000320000008813000010270000204e00003075000050c30000a0860100400d0300

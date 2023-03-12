@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+//need this to use math functions
+using System;
 
 public class ClickerCalculator : MonoBehaviour
 {
+    public int itemNo;
     public int item1Level;
     public int item2Level;
     public int item3Level;
@@ -25,24 +28,27 @@ public class ClickerCalculator : MonoBehaviour
     public Text textItem9;
     public AudioSource src;
     public AudioClip sfx1, sfx2, sfx3;
+    
 
     //create an array with all variables for items, eg array is 9X3 so nine arrays with three objects each, will contain (Item name, price, value of mulriplier)
     //Nevermind I need them to all be int, so just price and value 9,2
+    //this array is public so can be edit in ItemPriceArray Under Game
     public int[] itemPriceArray = new int[9]; 
 
 
 
     private void Start()
     {
-        item1Level= 0;
-        item2Level= 0;
-        item3Level= 0;
-        item4level= 0;
-        item51evel= 0;
-        item6Level= 0;
-        item7Level= 0;
-        item8Level= 0;
-        item9Level =0;    
+        item1Level= 1;
+        item2Level= 1;
+        item3Level= 1;
+        item4level= 1;
+        item51evel= 1;
+        item6Level= 1;
+        item7Level= 1;
+        item8Level= 1;
+        item9Level =1;    
+        itemNo= 0;
 
     }
 
@@ -86,13 +92,15 @@ public class ClickerCalculator : MonoBehaviour
         switch (num)
         {
             case 1:
-                if (GameManager.foodResource > 9)
+                int foodCost = Convert.ToInt32(Math.Pow(itemPriceArray[0], item1Level));
+                if (GameManager.foodResource >= foodCost)
                 {
-                    GameManager.foodResource -= 10;
+                    GameManager.foodResource -= foodCost;
                     GameManager.eatRate += 1;
                     src.clip = sfx1;
                     src.Play();
                     item1Level++;
+                    Debug.Log(itemPriceArray[1]);
                 }
                 else
                 {
@@ -103,10 +111,11 @@ public class ClickerCalculator : MonoBehaviour
                 break;
                 
             case 2:
-                if (GameManager.foodResource > 999)
+                foodCost = itemPriceArray[1] * item2Level;
+                if (GameManager.foodResource >= foodCost)
                 {
-                    GameManager.foodResource -= 1000;
-                    GameManager.eatRate +=50;
+                    GameManager.foodResource -= foodCost;
+                    GameManager.eatRate +=6;
                     src.clip = sfx1;
                     src.Play();
                     item2Level++;
@@ -119,10 +128,11 @@ public class ClickerCalculator : MonoBehaviour
                 break;
 
             case 3:
-                if (GameManager.foodResource > 4999)
+                foodCost = itemPriceArray[2] * item3Level;
+                if (GameManager.foodResource >= foodCost)
                 {
-                    GameManager.foodResource -= 5000;
-                    GameManager.autoEatRate += 20;
+                    GameManager.foodResource -= foodCost;
+                    GameManager.autoEatRate += 35;
                     src.clip = sfx1;
                     src.Play();
                     item3Level++;
@@ -135,10 +145,11 @@ public class ClickerCalculator : MonoBehaviour
                 break;
 
             case 4:
-                if (GameManager.foodResource > 9999)
+                foodCost = itemPriceArray[3] * item4level;
+                if (GameManager.foodResource >= foodCost)
                 {
-                    GameManager.foodResource -= 10000;
-                    GameManager.eatRate += 25000;
+                    GameManager.foodResource -= foodCost;
+                    GameManager.eatRate += 1250;
                     src.clip = sfx1;
                     src.Play();
                     item4level++;
@@ -151,10 +162,11 @@ public class ClickerCalculator : MonoBehaviour
                 break;
 
             case 5:
-                if (GameManager.foodResource > 9)
+                foodCost = itemPriceArray[4] * item51evel;
+                if (GameManager.foodResource >= foodCost)
                 {
-                    GameManager.foodResource -= 10;
-                    GameManager.eatRate += 2;
+                    GameManager.foodResource -= foodCost;
+                    GameManager.eatRate += 3000;
                     src.clip = sfx1;
                     src.Play();
                     item51evel++;
@@ -167,10 +179,11 @@ public class ClickerCalculator : MonoBehaviour
                 break;
 
             case 6:
-                if (GameManager.foodResource > 9)
+                foodCost = itemPriceArray[5] * item6Level;
+                if (GameManager.foodResource >= foodCost)
                 {
-                    GameManager.foodResource -= 10;
-                    GameManager.eatRate += 2;
+                    GameManager.foodResource -= foodCost;
+                    GameManager.autoEatRate += 350;
                     src.clip = sfx1;
                     src.Play();
                     item6Level++;
@@ -183,10 +196,12 @@ public class ClickerCalculator : MonoBehaviour
                 break;
 
             case 7:
-                if (GameManager.foodResource > 9)
+                foodCost = itemPriceArray[6] * item7Level;
+                if (GameManager.foodResource >= foodCost)
                 {
-                    GameManager.foodResource -= 10;
-                    GameManager.eatRate += 2;
+                    GameManager.foodResource -= foodCost;
+                    GameManager.eatRate += 365;
+                    GameManager.autoEatRate += 250;
                     src.clip = sfx1;
                     src.Play();
                     item7Level++;
@@ -199,10 +214,11 @@ public class ClickerCalculator : MonoBehaviour
                 break;
 
             case 8:
-                if (GameManager.foodResource > 9)
+                foodCost = itemPriceArray[7] * item8Level;
+                if (GameManager.foodResource >= foodCost)
                 {
-                    GameManager.foodResource -= 10;
-                    GameManager.eatRate += 2;
+                    GameManager.foodResource -= foodCost;
+                    GameManager.eatRate += 15000;
                     src.clip = sfx1;
                     src.Play();
                     item8Level++;
@@ -215,10 +231,11 @@ public class ClickerCalculator : MonoBehaviour
                 break;
 
             case 9:
-                if (GameManager.foodResource > 9)
+                foodCost = itemPriceArray[8] * item9Level;
+                if (GameManager.foodResource >= foodCost)
                 {
-                    GameManager.foodResource -= 10;
-                    GameManager.eatRate += 22;
+                    GameManager.foodResource -= foodCost;
+                    GameManager.autoEatRate += 10000;
                     src.clip = sfx1;
                     src.Play();
                     item9Level++;
@@ -237,48 +254,41 @@ public class ClickerCalculator : MonoBehaviour
         switch (num)
         {
             case 1:
-                textItem1.text = "Cost = 10";
-                textItem1.text = "Gain + 1 Food Per Click";
+                //Math Pow will multiple the first number (10) by the next number after comma (item1level)
+                textItem1.text = "Cost = "+ Math.Pow(itemPriceArray[0],item1Level) + "\n Gain + 1 Food Per Click";
+                
                 break;
 
             case 2:
-                textItem2.text = "Cost = 10";
-                textItem2.text = "Gain + 1 Food Per Click";
+                textItem2.text = "Cost = " + itemPriceArray[1] * item2Level + "\n Gain + 65 Food Per Click";
                 break;
 
             case 3:
-                textItem3.text = "Cost = 10";
-                textItem3.text = "Gain + 1 Food Per Click";
+                textItem3.text = "Cost = " + itemPriceArray[2] * item3Level + "\n Gain + 75 Auto Eat";
                 break;
 
             case 4:
-               textItem4.text = "Cost = 10";
-                textItem4.text = "Gain + 1 Food Per Click";
+                textItem4.text = "Cost = " + itemPriceArray[3] * item4level + "\n Gain + 1250 Food Per Click";
                 break;
 
             case 5:
-                textItem5.text = "Cost = 10";
-               textItem5.text = "Gain + 1 Food Per Click";
+                textItem5.text = "Cost = " + itemPriceArray[4] * item51evel + "\n Gain + 3000 Food Per Click";
                 break;
 
             case 6:
-                textItem6.text = "Cost = 10";
-                textItem6.text = "Gain + 1 Food Per Click";
+                textItem6.text = "Cost = " + itemPriceArray[5] * item6Level + "\n Gain + 350 Auto Eat";
                 break;
 
             case 7:
-                textItem7.text = "Cost = 10";
-                textItem7.text = "Gain + 1 Food Per Click";
+                textItem7.text = "Cost = " + itemPriceArray[6] * item7Level + "\n Gain + 36 Food Per Click & 250 Auto";
                 break;
 
             case 8:
-                textItem8.text = "Cost = 10";
-                textItem8.text = "Gain + 1 Food Per Click";
+                textItem8.text = "Cost = " + itemPriceArray[7] * item8Level + "\n Gain + 15000 Food Per Click";
                 break;
 
             case 9:
-                textItem9.text = "Cost = 10";
-                textItem9.text = "Gain + 1 Food Per Click";
+                textItem9.text = "Cost = " + itemPriceArray[8] * item9Level+ "\n Gain + 10000 Food Per Click";
                 break;
         }
     }

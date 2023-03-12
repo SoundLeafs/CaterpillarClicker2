@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
         //Show items when total food Consumed reaches a high enough level,
         switch (totalFoodConsumed)
         {
-            case > 9999999:
+            case > 3000000:
                _showitem9.SetActive(true);
                 _showitem8.SetActive(true);
                 _showitem7.SetActive(true);
@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
                 _stage9.SetActive(true);
 
                 break;
-            case > 999999:
+            case > 2000000:
                 _showitem8.SetActive(true);
                 _showitem7.SetActive(true);
                 _showitem6.SetActive(true);
@@ -154,7 +154,7 @@ public class GameManager : MonoBehaviour
                 _stage8.SetActive(true);
                
                 break;
-            case > 99999:
+            case > 1000000:
                 _showitem7.SetActive(true);
                 _showitem6.SetActive(true);
                 _showitem5.SetActive(true);
@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour
                 _stage7.SetActive(true);
               
                 break;
-            case > 9999:
+            case > 500000:
                 _showitem6.SetActive(true);
                 _showitem5.SetActive(true);
                 _showitem4.SetActive(true);
@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour
                 _stage6.SetActive(true);
              
                 break;
-            case > 999:
+            case > 100000:
                 _showitem5.SetActive(true);
                 _showitem4.SetActive(true);
                 _showitem3.SetActive(true);
@@ -193,7 +193,7 @@ public class GameManager : MonoBehaviour
                 _stage5.SetActive(true);
          
                 break;
-            case > 99:
+            case > 15000:
                 _showitem4.SetActive(true);
                 _showitem3.SetActive(true);
                 _showitem2.SetActive(true);
@@ -202,7 +202,7 @@ public class GameManager : MonoBehaviour
                 _stage4.SetActive(true);
    
                 break;
-            case > 50:
+            case > 500:
                 _showitem3.SetActive(true);
                 _showitem2.SetActive(true);
                 _stage2.SetActive(true);
