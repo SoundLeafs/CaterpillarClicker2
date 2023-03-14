@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 //need this to use math functions
 using System;
+using System.Runtime.CompilerServices;
 
 public class ClickerCalculator : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class ClickerCalculator : MonoBehaviour
     public Text textItem9;
     public AudioSource src;
     public AudioClip sfx1, sfx2, sfx3;
+    [SerializeField] private GameObject floatingTextPrefab;
+    [SerializeField] private GameObject canvas;
     
 
     //create an array with all variables for items, eg array is 9X3 so nine arrays with three objects each, will contain (Item name, price, value of mulriplier)
@@ -49,8 +52,20 @@ public class ClickerCalculator : MonoBehaviour
         item8Level= 1;
         item9Level =1;    
         itemNo= 0;
-
+        
     }
+
+    #region Show Clicks
+    void ShowClicks(string text)
+        //This Method will turn clicks into floating text
+    {
+        if (floatingTextPrefab)
+        {
+            GameObject prefab = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, canvas.transform);
+            prefab.GetComponentInChildren<Text>().text = text;
+        }
+    }
+    #endregion
 
     public void Eating()
         //this is code applied when we click the apple
@@ -58,6 +73,7 @@ public class ClickerCalculator : MonoBehaviour
         if (GameManager.doubleHead == true)
 
         {
+            ShowClicks((2*GameManager.eatRate).ToString());
             GameManager.foodResource += 2* GameManager.eatRate;
             //if we have double head then all clicks are worth double
             GameManager.totalFoodConsumed += 2 * GameManager.eatRate;
@@ -68,6 +84,7 @@ public class ClickerCalculator : MonoBehaviour
        
         else if(GameManager.tripleHead == true) 
         {
+            ShowClicks((3 * GameManager.eatRate).ToString());
             GameManager.foodResource += 3 * GameManager.eatRate;
             //if we have triple head then all clicks are worth triple
             GameManager.totalFoodConsumed += 3 * GameManager.eatRate;
@@ -77,6 +94,7 @@ public class ClickerCalculator : MonoBehaviour
 
         else
         {
+            ShowClicks(GameManager.eatRate.ToString());
             GameManager.foodResource += GameManager.eatRate;
             //if we have neither of these then all clicks are worth 1 x whatever other additons we have earned
             GameManager.totalFoodConsumed += GameManager.eatRate;
@@ -101,6 +119,7 @@ public class ClickerCalculator : MonoBehaviour
                     src.Play();
                     item1Level++;
                     Debug.Log(itemPriceArray[1]);
+                    MouseOver(1);
                 }
                 else
                 {
@@ -119,6 +138,7 @@ public class ClickerCalculator : MonoBehaviour
                     src.clip = sfx1;
                     src.Play();
                     item2Level++;
+                    MouseOver(2);
                 }
                 else
                 {
@@ -136,6 +156,7 @@ public class ClickerCalculator : MonoBehaviour
                     src.clip = sfx1;
                     src.Play();
                     item3Level++;
+                    MouseOver(3);
                 }
                 else
                 {
@@ -153,6 +174,7 @@ public class ClickerCalculator : MonoBehaviour
                     src.clip = sfx1;
                     src.Play();
                     item4level++;
+                    MouseOver(4);
                 }
                 else
                 {
@@ -170,6 +192,7 @@ public class ClickerCalculator : MonoBehaviour
                     src.clip = sfx1;
                     src.Play();
                     item51evel++;
+                    MouseOver(5);
                 }
                 else
                 {
@@ -187,6 +210,7 @@ public class ClickerCalculator : MonoBehaviour
                     src.clip = sfx1;
                     src.Play();
                     item6Level++;
+                    MouseOver(6);
                 }
                 else
                 {
@@ -205,6 +229,7 @@ public class ClickerCalculator : MonoBehaviour
                     src.clip = sfx1;
                     src.Play();
                     item7Level++;
+                    MouseOver(7);
                 }
                 else
                 {
@@ -222,6 +247,7 @@ public class ClickerCalculator : MonoBehaviour
                     src.clip = sfx1;
                     src.Play();
                     item8Level++;
+                    MouseOver(8);
                 }
                 else
                 {
@@ -239,6 +265,7 @@ public class ClickerCalculator : MonoBehaviour
                     src.clip = sfx1;
                     src.Play();
                     item9Level++;
+                    MouseOver(9);
                 }
                 else
                 {

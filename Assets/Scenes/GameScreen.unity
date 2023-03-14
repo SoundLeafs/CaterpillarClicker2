@@ -6748,4 +6748,6 @@ MonoBehaviour:
   sfx1: {fileID: 8300000, guid: f1da84fa5ed95594d94adc2f1ec9ab82, type: 3}
   sfx2: {fileID: 8300000, guid: a781501421a5d7842bd47330fea236eb, type: 3}
   sfx3: {fileID: 8300000, guid: 22c966da44e17a242b708ac3010b9937, type: 3}
+  floatingTextPrefab: {fileID: 6181644821408269547, guid: 0a09d26105e04bf4da89d1a82a93168c, type: 3}
+  canvas: {fileID: 2143344081}
   itemPriceArray: 02000000320000008813000010270000204e00003075000050c30000a0860100400d0300
