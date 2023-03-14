@@ -2557,7 +2557,7 @@ GameObject:
   - component: {fileID: 817754112}
   - component: {fileID: 817754111}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Skill1Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2616,7 +2616,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Skill1
 --- !u!222 &817754112
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4349,7 +4349,7 @@ GameObject:
   - component: {fileID: 1413685796}
   - component: {fileID: 1413685795}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Skill3Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4408,7 +4408,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Skill3
 --- !u!222 &1413685796
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6122,7 +6122,7 @@ GameObject:
   - component: {fileID: 2056040071}
   - component: {fileID: 2056040070}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Skill2Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6181,7 +6181,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Skill2
 --- !u!222 &2056040071
 CanvasRenderer:
   m_ObjectHideFlags: 0
