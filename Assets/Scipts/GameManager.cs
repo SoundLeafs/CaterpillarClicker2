@@ -68,7 +68,22 @@ public class GameManager : MonoBehaviour
     public static bool skills3 = false;
     [SerializeField] GameObject _skills3;
 
+    [SerializeField] private GameObject floatingTextPrefab;
+    [SerializeField] private GameObject canvas;
 
+    #region Show Auto
+
+    //This method/function will show text at position of object it is attached to  (Gaamemanager)
+    void ShowAuto(string text)
+    {
+        if (floatingTextPrefab)
+        {
+            GameObject prefab = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, canvas.transform);
+            prefab.GetComponentInChildren<Text>().text = text;
+        }
+    }
+
+    #endregion
 
 
     #endregion
@@ -242,11 +257,17 @@ public class GameManager : MonoBehaviour
             // Call your fonction
             UpdateEverySecond();
         }
+
         void UpdateEverySecond()
         {
-            foodResource += autoEatRate;
-            timePassed++;
-            //every second will add x to the foodResource.
+            if (autoEatRate > 0)
+                //if we have auto, otherwise will keep showing zero which is annoying
+            {
+                ShowAuto(GameManager.autoEatRate.ToString());
+                foodResource += autoEatRate;
+                timePassed++;
+                //every second will add x to the foodResource.
+            }
         }
 
     }

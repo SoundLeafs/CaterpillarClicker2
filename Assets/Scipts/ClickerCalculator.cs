@@ -38,6 +38,11 @@ public class ClickerCalculator : MonoBehaviour
     //this array is public so can be edit in ItemPriceArray Under Game
     public int[] itemPriceArray = new int[9]; 
 
+    //Create array with variables for ClickGain
+    public int[] itemEatRate = new int[9];
+
+    //Create array with variables for AutoClickGain
+    public int[] itemAutoRate= new int[9];
 
 
     private void Start()
@@ -66,6 +71,8 @@ public class ClickerCalculator : MonoBehaviour
         }
     }
     #endregion
+
+
 
     public void Eating()
         //this is code applied when we click the apple
@@ -114,7 +121,8 @@ public class ClickerCalculator : MonoBehaviour
                 if (GameManager.foodResource >= foodCost)
                 {
                     GameManager.foodResource -= foodCost;
-                    GameManager.eatRate += 1;
+                    GameManager.eatRate += itemEatRate[0];
+                    GameManager.autoEatRate += itemAutoRate[0];
                     src.clip = sfx1;
                     src.Play();
                     item1Level++;
@@ -134,7 +142,8 @@ public class ClickerCalculator : MonoBehaviour
                 if (GameManager.foodResource >= foodCost)
                 {
                     GameManager.foodResource -= foodCost;
-                    GameManager.eatRate +=6;
+                    GameManager.eatRate += itemEatRate[1];
+                    GameManager.autoEatRate += itemAutoRate[1];
                     src.clip = sfx1;
                     src.Play();
                     item2Level++;
@@ -152,7 +161,8 @@ public class ClickerCalculator : MonoBehaviour
                 if (GameManager.foodResource >= foodCost)
                 {
                     GameManager.foodResource -= foodCost;
-                    GameManager.autoEatRate += 35;
+                    GameManager.eatRate += itemEatRate[2];
+                    GameManager.autoEatRate += itemAutoRate[2]; 
                     src.clip = sfx1;
                     src.Play();
                     item3Level++;
@@ -170,7 +180,8 @@ public class ClickerCalculator : MonoBehaviour
                 if (GameManager.foodResource >= foodCost)
                 {
                     GameManager.foodResource -= foodCost;
-                    GameManager.eatRate += 1250;
+                    GameManager.eatRate +=  itemEatRate[3];
+                    GameManager.autoEatRate += itemAutoRate[3];
                     src.clip = sfx1;
                     src.Play();
                     item4level++;
@@ -188,7 +199,8 @@ public class ClickerCalculator : MonoBehaviour
                 if (GameManager.foodResource >= foodCost)
                 {
                     GameManager.foodResource -= foodCost;
-                    GameManager.eatRate += 3000;
+                    GameManager.eatRate +=  itemEatRate[4];
+                    GameManager.autoEatRate += itemAutoRate[4];
                     src.clip = sfx1;
                     src.Play();
                     item51evel++;
@@ -206,7 +218,8 @@ public class ClickerCalculator : MonoBehaviour
                 if (GameManager.foodResource >= foodCost)
                 {
                     GameManager.foodResource -= foodCost;
-                    GameManager.autoEatRate += 350;
+                    GameManager.eatRate += itemEatRate[5];
+                    GameManager.autoEatRate +=  itemAutoRate[5]; 
                     src.clip = sfx1;
                     src.Play();
                     item6Level++;
@@ -224,8 +237,8 @@ public class ClickerCalculator : MonoBehaviour
                 if (GameManager.foodResource >= foodCost)
                 {
                     GameManager.foodResource -= foodCost;
-                    GameManager.eatRate += 365;
-                    GameManager.autoEatRate += 250;
+                    GameManager.eatRate +=  itemEatRate[6]; 
+                    GameManager.autoEatRate +=  itemAutoRate[6]; 
                     src.clip = sfx1;
                     src.Play();
                     item7Level++;
@@ -243,7 +256,8 @@ public class ClickerCalculator : MonoBehaviour
                 if (GameManager.foodResource >= foodCost)
                 {
                     GameManager.foodResource -= foodCost;
-                    GameManager.eatRate += 15000;
+                    GameManager.eatRate +=  itemEatRate[7];
+                    GameManager.autoEatRate += itemAutoRate[7];
                     src.clip = sfx1;
                     src.Play();
                     item8Level++;
@@ -261,7 +275,8 @@ public class ClickerCalculator : MonoBehaviour
                 if (GameManager.foodResource >= foodCost)
                 {
                     GameManager.foodResource -= foodCost;
-                    GameManager.autoEatRate += 10000;
+                    GameManager.eatRate += itemEatRate[8];
+                    GameManager.autoEatRate +=  itemAutoRate[8]; 
                     src.clip = sfx1;
                     src.Play();
                     item9Level++;
