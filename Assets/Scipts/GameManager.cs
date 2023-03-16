@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     public static int timePassed;
     //Next update in seconds
     private int nextUpdate = 1;
+
+  
   
 
 
@@ -75,6 +77,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         #region variables initialise
+      
 
         foodResource = 0;
         eatRate = 1;
@@ -114,6 +117,8 @@ public class GameManager : MonoBehaviour
         autoEatPerSecondt.text = "Auto Eat Per Second = " + autoEatRate;
         timePassedt.text = timePassed + " Seconds of Chaos";
 
+      
+
         #region Unlock Shop Items
         //Show items when total food Consumed reaches a high enough level,
         switch (totalFoodConsumed)
@@ -135,6 +140,7 @@ public class GameManager : MonoBehaviour
                 _stage7.SetActive(true);
                 _stage8.SetActive(true);
                 _stage9.SetActive(true);
+                MonsterSize.monsterSize = 9;
 
                 break;
             case > 2000000:
@@ -152,7 +158,8 @@ public class GameManager : MonoBehaviour
                 _stage6.SetActive(true);
                 _stage7.SetActive(true);
                 _stage8.SetActive(true);
-               
+                MonsterSize.monsterSize = 8;
+
                 break;
             case > 1000000:
                 _showitem7.SetActive(true);
@@ -167,7 +174,8 @@ public class GameManager : MonoBehaviour
                 _stage5.SetActive(true);
                 _stage6.SetActive(true);
                 _stage7.SetActive(true);
-              
+                MonsterSize.monsterSize = 7;
+
                 break;
             case > 500000:
                 _showitem6.SetActive(true);
@@ -180,7 +188,8 @@ public class GameManager : MonoBehaviour
                 _stage4.SetActive(true);
                 _stage5.SetActive(true);
                 _stage6.SetActive(true);
-             
+                MonsterSize.monsterSize = 6;
+
                 break;
             case > 100000:
                 _showitem5.SetActive(true);
@@ -191,7 +200,8 @@ public class GameManager : MonoBehaviour
                 _stage3.SetActive(true);
                 _stage4.SetActive(true);
                 _stage5.SetActive(true);
-         
+                MonsterSize.monsterSize = 5;
+
                 break;
             case > 15000:
                 _showitem4.SetActive(true);
@@ -200,19 +210,22 @@ public class GameManager : MonoBehaviour
                 _stage2.SetActive(true);
                 _stage3.SetActive(true);
                 _stage4.SetActive(true);
-   
+                MonsterSize.monsterSize = 4;
+
                 break;
             case > 500:
                 _showitem3.SetActive(true);
                 _showitem2.SetActive(true);
                 _stage2.SetActive(true);
                 _stage3.SetActive(true);
-              
+                MonsterSize.monsterSize = 3;
+
                 break;
             case > 49:
                 _showitem2.SetActive(true);
                 _stage2.SetActive(true);
- 
+                MonsterSize.monsterSize = 2;
+
                 break;
 
         }

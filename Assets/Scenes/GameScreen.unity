@@ -337,6 +337,8 @@ MonoBehaviour:
   totalFoodConsumedt: {fileID: 883271911}
   autoEatPerSecondt: {fileID: 357342534}
   timePassedt: {fileID: 791688179}
+  monsterSize: 1
+  originalSize: {x: 0, y: 0, z: 0}
   _showitem2: {fileID: 369384445}
   _showitem3: {fileID: 253327209}
   _showitem4: {fileID: 260678465}
@@ -4972,6 +4974,7 @@ GameObject:
   - component: {fileID: 1658413015}
   - component: {fileID: 1658413017}
   - component: {fileID: 1658413016}
+  - component: {fileID: 1658413018}
   m_Layer: 5
   m_Name: MonsterStatus
   m_TagString: Untagged
@@ -4996,8 +4999,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -559.99994, y: 220}
-  m_SizeDelta: {x: 800, y: 440}
+  m_AnchoredPosition: {x: -561, y: 211}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1658413016
 MonoBehaviour:
@@ -5037,6 +5040,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1658413014}
   m_CullTransparentMesh: 1
+--- !u!114 &1658413018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658413014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 279671e68cb64c44592b4616a009736e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterSize: 1
+  originalSize: {x: 100, y: 100, z: 0}
 --- !u!1 &1687679007
 GameObject:
   m_ObjectHideFlags: 0
