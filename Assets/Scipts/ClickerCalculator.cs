@@ -102,9 +102,25 @@ public class ClickerCalculator : MonoBehaviour
     }
     #endregion
 
+    #region Skills Methods
+    public void Skill1Activate()
+    {
 
+    }
 
-    public void Eating()
+    public void Skill2Activate()
+    {
+
+    }
+    
+    public void Skill3Activate()
+    {
+
+    }
+
+    #endregion
+
+    public static void Eating()
         //this is code applied when we click the apple
     {
         if (GameManager.doubleHead == true)

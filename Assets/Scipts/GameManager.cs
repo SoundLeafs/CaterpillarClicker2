@@ -44,6 +44,12 @@ public class GameManager : MonoBehaviour
     public static bool showItem9 = false;
     [SerializeField] GameObject _showitem9;
 
+    //skills booleans
+    public bool skills1Active = false;
+    public bool skills2Active = false;
+    public bool skills3Active = false;
+
+
     public static bool stage2 = false;
     [SerializeField] GameObject _stage2;
     public static bool stage3 = false;
@@ -101,6 +107,8 @@ public class GameManager : MonoBehaviour
         tripleHead = false;
         totalFoodConsumed= 0;
         timePassed = 0;
+
+
         _showitem2.SetActive(false);
         _showitem3.SetActive(false);
         _showitem4.SetActive(false);
@@ -133,8 +141,13 @@ public class GameManager : MonoBehaviour
         autoEatPerSecondt.text = "Auto Eat Per Second = " + autoEatRate;
         timePassedt.text = timePassed + " Seconds of Chaos";
 
-      
+        //IF skills one is active then click mouse every update
+        if (skills1Active)
+        {
+            ClickerCalculator.Eating();
+        }
 
+        
         #region Unlock Shop Items
         //Show items when total food Consumed reaches a high enough level,
         switch (totalFoodConsumed)
@@ -252,12 +265,14 @@ public class GameManager : MonoBehaviour
         // If the next update is reached
         if (Time.time >= nextUpdate)
         {
-            Debug.Log(Time.time + ">=" + nextUpdate);
+        
             // Change the next update (current second+1)
             nextUpdate = Mathf.FloorToInt(Time.time) + 1;
             // Call your fonction
             UpdateEverySecond();
         }
+
+     
 
         void UpdateEverySecond()
         {
@@ -269,6 +284,9 @@ public class GameManager : MonoBehaviour
                 timePassed++;
                 //every second will add x to the foodResource.
             }
+
+            
+
         }
 
     }
