@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e3265ab4bf004d28a9537516768c1c75
+guid: 4d2620b4a1a6e834781c9bf3a1b6d858
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,8 +9,9 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Liberation Sans
-  fallbackFontReferences: []
+  - Dogica Pixel
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 51d8cf4984c5df44fac7908032e687ee, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
