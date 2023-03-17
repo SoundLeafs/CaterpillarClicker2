@@ -31,7 +31,37 @@ public class ClickerCalculator : MonoBehaviour
     public AudioClip sfx1, sfx2, sfx3;
     [SerializeField] private GameObject floatingTextPrefab;
     [SerializeField] private GameObject canvas;
-    
+
+    public static bool showItemBox1 = false;
+    [SerializeField] GameObject _showItemBox1;
+
+    public static bool showItemBox2 = false;
+    [SerializeField] GameObject _showItemBox2;
+
+    public static bool showItemBox3 = false;
+    [SerializeField] GameObject _showItemBox3;
+
+    public static bool showItemBox4 = false;
+    [SerializeField] GameObject _showItemBox4;
+
+    public static bool showItemBox5 = false;
+    [SerializeField] GameObject _showItemBox5;
+
+    public static bool showItemBox6 = false;
+    [SerializeField] GameObject _showItemBox6;
+
+    public static bool showItemBox7 = false;
+    [SerializeField] GameObject _showItemBox7;
+
+    public static bool showItemBox8 = false;
+    [SerializeField] GameObject _showItemBox8;
+
+    public static bool showItemBox9 = false;
+    [SerializeField] GameObject _showItemBox9;
+
+    //Hide TextBox when not in use
+
+
 
     //create an array with all variables for items, eg array is 9X3 so nine arrays with three objects each, will contain (Item name, price, value of mulriplier)
     //Nevermind I need them to all be int, so just price and value 9,2
@@ -297,39 +327,50 @@ public class ClickerCalculator : MonoBehaviour
         {
             case 1:
                 //Math Pow will multiple the first number (10) by the next number after comma (item1level)
+                _showItemBox1.SetActive(true);
+                //Debug
+                Console.WriteLine("ShowItemBox");
                 textItem1.text = "Cost = "+ Math.Pow(itemPriceArray[0],item1Level) + "\n Gain + 1 Food Per Click";
                 
                 break;
 
             case 2:
+                _showItemBox2.SetActive(true);
                 textItem2.text = "Cost = " + itemPriceArray[1] * item2Level + "\n Gain + 65 Food Per Click";
                 break;
 
             case 3:
+                _showItemBox3.SetActive(true);
                 textItem3.text = "Cost = " + itemPriceArray[2] * item3Level + "\n Gain + 75 Auto Eat";
                 break;
 
             case 4:
+                _showItemBox4.SetActive(true);
                 textItem4.text = "Cost = " + itemPriceArray[3] * item4level + "\n Gain + 1250 Food Per Click";
                 break;
 
             case 5:
+                _showItemBox5.SetActive(true);
                 textItem5.text = "Cost = " + itemPriceArray[4] * item51evel + "\n Gain + 3000 Food Per Click";
                 break;
 
             case 6:
+                _showItemBox6.SetActive(true);
                 textItem6.text = "Cost = " + itemPriceArray[5] * item6Level + "\n Gain + 350 Auto Eat";
                 break;
 
             case 7:
+                _showItemBox7.SetActive(true);
                 textItem7.text = "Cost = " + itemPriceArray[6] * item7Level + "\n Gain + 36 Food Per Click & 250 Auto";
                 break;
 
             case 8:
+                _showItemBox8.SetActive(true);
                 textItem8.text = "Cost = " + itemPriceArray[7] * item8Level + "\n Gain + 15000 Food Per Click";
                 break;
 
             case 9:
+                _showItemBox9.SetActive(true);
                 textItem9.text = "Cost = " + itemPriceArray[8] * item9Level+ "\n Gain + 10000 Food Per Click";
                 break;
         }
@@ -341,47 +382,48 @@ public class ClickerCalculator : MonoBehaviour
         {
             case 1:
                 textItem1.text = "Item1 \n Lv" + item1Level;
+                _showItemBox1.SetActive(false);
                 break;
 
             case 2:
                 textItem2.text = "Item2 \n Lv" + item2Level;
-                
+                _showItemBox2.SetActive(false);
                 break;
                 
 
             case 3:
                 textItem3.text = "Item3 \n Lv" + item3Level;
-                
+                _showItemBox3.SetActive(false);
                 break;
 
             case 4:
                 textItem4.text = "Item4 \n Lv" + item4level;
-                
+                _showItemBox4.SetActive(false);
                 break;
 
             case 5:
                 textItem5.text = "Item5 \n Lv" + item51evel;
-              
+                _showItemBox5.SetActive(false);
                 break;
 
             case 6:
                 textItem6.text = "Item6 \n Lv" + item6Level;
-                
-                break;
+                _showItemBox6.SetActive(false);
+                break;;
 
             case 7:
                 textItem7.text = "Item7 \n Lv" + item7Level;
-                
+                _showItemBox7.SetActive(false);
                 break;
 
             case 8:
                 textItem8.text = "Item8 \n Lv" + item8Level;
-                
+                _showItemBox8.SetActive(false);
                 break;
 
             case 9:
                 textItem9.text = "Item9 \n Lv" + item9Level;
-                
+                _showItemBox9.SetActive(false);
                 break;
         }
     }

@@ -121,6 +121,7 @@ public class GameManager : MonoBehaviour
 
         _skills1.SetActive(false);
         _skills2.SetActive(false);
+        _skills2.SetActive(false);
         _skills3.SetActive(false);
         #endregion
     }
