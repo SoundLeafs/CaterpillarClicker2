@@ -13,7 +13,7 @@ public class ClickerCalculator : MonoBehaviour
     public int item2Level;
     public int item3Level;
     public int item4level;
-    public int item51evel;
+    public int item5level;
     public int item6Level;
     public int item7Level;
     public int item8Level;
@@ -61,6 +61,17 @@ public class ClickerCalculator : MonoBehaviour
 
     //Hide TextBox when not in use
 
+    #region Show Clicks
+    public void ShowClicks(string text)
+        //This Method will turn clicks into floating text
+    {
+        if (floatingTextPrefab)
+        {
+            GameObject prefab = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, canvas.transform);
+            prefab.GetComponentInChildren<Text>().text = text;
+        }
+    }
+    #endregion
 
 
     //create an array with all variables for items, eg array is 9X3 so nine arrays with three objects each, will contain (Item name, price, value of mulriplier)
@@ -81,7 +92,7 @@ public class ClickerCalculator : MonoBehaviour
         item2Level= 1;
         item3Level= 1;
         item4level= 1;
-        item51evel= 1;
+        item5level= 1;
         item6Level= 1;
         item7Level= 1;
         item8Level= 1;
@@ -90,17 +101,7 @@ public class ClickerCalculator : MonoBehaviour
         
     }
 
-    #region Show Clicks
-    void ShowClicks(string text)
-        //This Method will turn clicks into floating text
-    {
-        if (floatingTextPrefab)
-        {
-            GameObject prefab = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, canvas.transform);
-            prefab.GetComponentInChildren<Text>().text = text;
-        }
-    }
-    #endregion
+    
 
     #region Skills Methods
     public void Skill1Activate()
@@ -120,13 +121,13 @@ public class ClickerCalculator : MonoBehaviour
 
     #endregion
 
-    public static void Eating()
+    public void Eating()
         //this is code applied when we click the apple
     {
         if (GameManager.doubleHead == true)
 
         {
-            ShowClicks((2*GameManager.eatRate).ToString());
+            ShowClicks((2 * GameManager.eatRate).ToString());
             GameManager.foodResource += 2* GameManager.eatRate;
             //if we have double head then all clicks are worth double
             GameManager.totalFoodConsumed += 2 * GameManager.eatRate;
@@ -241,7 +242,7 @@ public class ClickerCalculator : MonoBehaviour
                 break;
 
             case 5:
-                foodCost = itemPriceArray[4] * item51evel;
+                foodCost = itemPriceArray[4] * item5level;
                 if (GameManager.foodResource >= foodCost)
                 {
                     GameManager.foodResource -= foodCost;
@@ -249,7 +250,7 @@ public class ClickerCalculator : MonoBehaviour
                     GameManager.autoEatRate += itemAutoRate[4];
                     src.clip = sfx1;
                     src.Play();
-                    item51evel++;
+                    item5level++;
                     MouseOver(5);
                 }
                 else
@@ -367,7 +368,7 @@ public class ClickerCalculator : MonoBehaviour
 
             case 5:
                 _showItemBox5.SetActive(true);
-                textItem5.text = "Cost = " + itemPriceArray[4] * item51evel + "\n Gain + 3000 Food Per Click";
+                textItem5.text = "Cost = " + itemPriceArray[4] * item5level + "\n Gain + 3000 Food Per Click";
                 break;
 
             case 6:
@@ -418,7 +419,7 @@ public class ClickerCalculator : MonoBehaviour
                 break;
 
             case 5:
-                textItem5.text = "Item5 \n Lv" + item51evel;
+                textItem5.text = "Item5 \n Lv" + item5level;
                 _showItemBox5.SetActive(false);
                 break;
 

@@ -141,11 +141,7 @@ public class GameManager : MonoBehaviour
         autoEatPerSecondt.text = "Auto Eat Per Second = " + autoEatRate;
         timePassedt.text = timePassed + " Seconds of Chaos";
 
-        //IF skills one is active then click mouse every update
-        if (skills1Active)
-        {
-            ClickerCalculator.Eating();
-        }
+      
 
         
         #region Unlock Shop Items
