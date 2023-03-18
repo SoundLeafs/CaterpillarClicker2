@@ -59,6 +59,23 @@ public class ClickerCalculator : MonoBehaviour
     public static bool showItemBox9 = false;
     [SerializeField] GameObject _showItemBox9;
 
+    //Skills Bool
+    public static bool skills1Active;
+    public static bool skills1Bought;
+    public static int skills1Cooldown;
+    public static int skills1ActiveTime;
+
+    public static bool skills2Active;
+    public static bool skills2Bought;
+    public static int skills2Cooldown;
+    public static int skills2ActiveTime;
+
+    public static bool skills3Active;
+    public static bool skills3Bought;
+    public static int skills3Cooldown;
+    public static int skills3ActiveTime;
+
+
     //Hide TextBox when not in use
 
     #region Show Clicks
@@ -98,6 +115,9 @@ public class ClickerCalculator : MonoBehaviour
         item8Level= 1;
         item9Level =1;    
         itemNo= 0;
+
+       
+        
         
     }
 
@@ -105,18 +125,111 @@ public class ClickerCalculator : MonoBehaviour
 
     #region Skills Methods
     public void Skill1Activate()
+        //triple click, all clicks worth triple
     {
+        //Check if we have purchased skill, if yes then go to next line, else purchase or play bad sounds
+        if (skills1Bought)
+        {
+            //if cooldown is 0 then we can use 
+            if (skills1Cooldown <=0)
+            {
+                skills1Active= true;
+                //set cooldown to 30 seconds
+                skills1Cooldown= 30;
+                skills1ActiveTime= 10;
+            }   
+        }
+
+        else
+        {
+            //if we dont have it and click and we have >5000 then we buy it
+            if (GameManager.foodResource >= 5000)
+            {
+                GameManager.foodResource -= 5000;
+                skills1Bought = true;
+                src.clip = sfx1;
+                src.Play();
+               
+              
+            }
+            else
+            {
+                src.clip = sfx2;
+                src.Play();
+            }
+        }
+       
 
     }
 
     public void Skill2Activate()
     {
+        //Check if we have purchased skill, if yes then go to next line, else purchase or play bad sounds
+        if (skills2Bought)
+        {
+            //if cooldown is 0 then we can use 
+            if (skills2Cooldown <= 0)
+            {
+                skills2Active = true;
+                //set cooldown to 60 seconds
+                skills2Cooldown = 60;
+                skills2ActiveTime= 15;
+            }
+        }
 
+        else
+        {
+            //if we dont have it and click and we have >5000 then we buy it
+            if (GameManager.foodResource >= 10000)
+            {
+                GameManager.foodResource -= 10000;
+                skills2Bought = true;
+                src.clip = sfx1;
+                src.Play();
+               
+               
+            }
+            else
+            {
+                src.clip = sfx2;
+                src.Play();
+            }
+        }
     }
     
     public void Skill3Activate()
     {
+        //Check if we have purchased skill, if yes then go to next line, else purchase or play bad sounds
+        if (skills3Bought)
+        {
+            //if cooldown is 0 then we can use 
+            if (skills3Cooldown <= 0)
+            {
+                skills3Active = true;
+                //set cooldown to 90 seconds
+                skills3Cooldown = 90;
+                skills3ActiveTime= 15;
+            }
+        }
 
+        else
+        {
+            //if we dont have it and click and we have >5000 then we buy it
+            if (GameManager.foodResource >= 20000)
+            {
+                GameManager.foodResource -= 20000;
+                skills3Bought = true;
+                src.clip = sfx1;
+                src.Play();
+
+
+            }
+            else
+            {
+                src.clip = sfx2;
+                src.Play();
+            }
+        }
     }
 
     #endregion
@@ -127,33 +240,82 @@ public class ClickerCalculator : MonoBehaviour
         if (GameManager.doubleHead == true)
 
         {
-            ShowClicks((2 * GameManager.eatRate).ToString());
-            GameManager.foodResource += 2* GameManager.eatRate;
-            //if we have double head then all clicks are worth double
-            GameManager.totalFoodConsumed += 2 * GameManager.eatRate;
-            //update the total food consumed
-            
+            if (skills1Active)
+            {
+                //we run 3 times if skills1active
+                for (int i = 0; i < 3; i++)
+                {
+                    ShowClicks((2 * GameManager.eatRate).ToString());
+                    GameManager.foodResource += 2 * GameManager.eatRate;
+                    //if we have double head then all clicks are worth double
+                    GameManager.totalFoodConsumed += 2 * GameManager.eatRate;
+                    //update the total food consumed
+                    
+                }
+
+            }
+            else
+            {
+                ShowClicks((2 * GameManager.eatRate).ToString());
+                GameManager.foodResource += 2 * GameManager.eatRate;
+                //if we have double head then all clicks are worth double
+                GameManager.totalFoodConsumed += 2 * GameManager.eatRate;
+                //update the total food consumed
+            }
+
+
 
         }   
        
         else if(GameManager.tripleHead == true) 
         {
-            ShowClicks((3 * GameManager.eatRate).ToString());
-            GameManager.foodResource += 3 * GameManager.eatRate;
-            //if we have triple head then all clicks are worth triple
-            GameManager.totalFoodConsumed += 3 * GameManager.eatRate;
-            //update the total food consumed
-            
+            if (skills1Active)
+            {
+                //run 3 times
+                for (int i = 0; i < 3; i++)
+                {
+                    ShowClicks((3 * GameManager.eatRate).ToString());
+                    GameManager.foodResource += 3 * GameManager.eatRate;
+                    //if we have triple head then all clicks are worth triple
+                    GameManager.totalFoodConsumed += 3 * GameManager.eatRate;
+                    //update the total food consumed
+                }
+            }
+            else
+            {
+                ShowClicks((3 * GameManager.eatRate).ToString());
+                GameManager.foodResource += 3 * GameManager.eatRate;
+                //if we have triple head then all clicks are worth triple
+                GameManager.totalFoodConsumed += 3 * GameManager.eatRate;
+                //update the total food consumed
+            }
+
+
         }
 
         else
         {
-            ShowClicks(GameManager.eatRate.ToString());
-            GameManager.foodResource += GameManager.eatRate;
-            //if we have neither of these then all clicks are worth 1 x whatever other additons we have earned
-            GameManager.totalFoodConsumed += GameManager.eatRate;
-            //update the total food consumed
-           
+            if (skills1Active) 
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    ShowClicks(GameManager.eatRate.ToString());
+                    GameManager.foodResource += GameManager.eatRate;
+                    //if we have neither of these then all clicks are worth 1 x whatever other additons we have earned
+                    GameManager.totalFoodConsumed += GameManager.eatRate;
+                    //update the total food consumed
+                }
+            }
+            else
+            {
+                ShowClicks(GameManager.eatRate.ToString());
+                GameManager.foodResource += GameManager.eatRate;
+                //if we have neither of these then all clicks are worth 1 x whatever other additons we have earned
+                GameManager.totalFoodConsumed += GameManager.eatRate;
+                //update the total food consumed
+            }
+
+
         }
 
     }

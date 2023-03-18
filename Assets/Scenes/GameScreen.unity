@@ -7155,7 +7155,7 @@ MonoBehaviour:
   item2Level: 1
   item3Level: 1
   item4level: 1
-  item5level: 0
+  item5level: 1
   item6Level: 1
   item7Level: 1
   item8Level: 1
@@ -7169,6 +7169,10 @@ MonoBehaviour:
   textItem7: {fileID: 141778767}
   textItem8: {fileID: 0}
   textItem9: {fileID: 0}
+  src: {fileID: 2143344087}
+  sfx1: {fileID: 8300000, guid: f1da84fa5ed95594d94adc2f1ec9ab82, type: 3}
+  sfx2: {fileID: 8300000, guid: a781501421a5d7842bd47330fea236eb, type: 3}
+  sfx3: {fileID: 8300000, guid: 22c966da44e17a242b708ac3010b9937, type: 3}
   floatingTextPrefab: {fileID: 6181644821408269547, guid: 0a09d26105e04bf4da89d1a82a93168c, type: 3}
   canvas: {fileID: 2143344081}
   _showItemBox1: {fileID: 1109188577}

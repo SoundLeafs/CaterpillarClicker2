@@ -165,9 +165,28 @@ public class GameManager : MonoBehaviour
         autoEatPerSecondt.text = "Auto Eat Per Second = " + autoEatRate;
         timePassedt.text = timePassed + " Seconds of Chaos";
 
-      
+        //Disable skills if time up
+        if (skills1Active && ClickerCalculator.skills1ActiveTime <1)
+        {
+            skills1Active= false;
+            Debug.Log("skills1Disabled");
+        }
 
-        
+        //Disable skills if time up
+        if (skills2Active && ClickerCalculator.skills2ActiveTime < 1)
+        {
+            skills2Active = false;
+            Debug.Log("skills2Disabled");
+        }
+        //Disable skills if time up
+        if (skills3Active && ClickerCalculator.skills3ActiveTime < 1)
+        {
+            skills3Active = false;
+            Debug.Log("skills3Disabled");
+        }
+
+
+
         #region Unlock Shop Items and MonsterSize / Stages
         //Show items when total food Consumed reaches a high enough level,
         switch (totalFoodConsumed)
@@ -321,6 +340,12 @@ public class GameManager : MonoBehaviour
         void UpdateEverySecond()
         {
             timePassed++;
+            ClickerCalculator.skills1Cooldown--;
+            ClickerCalculator.skills1ActiveTime--;
+            ClickerCalculator.skills2Cooldown--;
+            ClickerCalculator.skills2ActiveTime--;
+            ClickerCalculator.skills3Cooldown--;
+            ClickerCalculator.skills3ActiveTime--;
             //every second will add x to the foodResource.
 
             if (autoEatRate > 0)
