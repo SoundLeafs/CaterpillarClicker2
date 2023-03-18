@@ -192,8 +192,7 @@ public class GameManager : MonoBehaviour
                 MonsterSize.monsterSize = 9;
                 click01.sprite = click09;
                 worm01.sprite = worm09;
-                ClickerCalculator.src.clip = ClickerCalculator.sfx3;
-                ClickerCalculator.src.Play();
+            
 
                 break;
             case > 200000:
@@ -214,8 +213,7 @@ public class GameManager : MonoBehaviour
                 MonsterSize.monsterSize = 8;
                 click01.sprite = click08;
                 worm01.sprite = worm08;
-                ClickerCalculator.src.clip = ClickerCalculator.sfx3;
-                ClickerCalculator.src.Play();
+          
 
                 break;
             case > 100000:
@@ -234,8 +232,7 @@ public class GameManager : MonoBehaviour
                 MonsterSize.monsterSize = 7;
                 click01.sprite = click07;
                 worm01.sprite = worm07;
-                ClickerCalculator.src.clip = ClickerCalculator.sfx3;
-                ClickerCalculator.src.Play();
+            
 
                 break;
             case > 50000:
@@ -252,8 +249,7 @@ public class GameManager : MonoBehaviour
                 MonsterSize.monsterSize = 6;
                 click01.sprite = click06;
                 worm01.sprite = worm06;
-                ClickerCalculator.src.clip = ClickerCalculator.sfx3;
-                ClickerCalculator.src.Play();
+           
 
                 break;
             case > 10000:
@@ -268,8 +264,7 @@ public class GameManager : MonoBehaviour
                 MonsterSize.monsterSize = 5;
                 click01.sprite = click05;
                 worm01.sprite = worm05;
-                ClickerCalculator.src.clip = ClickerCalculator.sfx3;
-                ClickerCalculator.src.Play();
+              
 
                 break;
             case > 5000:
@@ -282,8 +277,7 @@ public class GameManager : MonoBehaviour
                 MonsterSize.monsterSize = 4;
                click01.sprite = click04;
                 worm01.sprite = worm04;
-                ClickerCalculator.src.clip = ClickerCalculator.sfx3;
-                ClickerCalculator.src.Play();
+              
 
                 break;
             case > 500:
@@ -294,8 +288,7 @@ public class GameManager : MonoBehaviour
                 MonsterSize.monsterSize = 3;
                 click01.sprite = click03;
                 worm01.sprite = worm03;
-                ClickerCalculator.src.clip = ClickerCalculator.sfx3;
-                ClickerCalculator.src.Play();
+               
 
                 break;
             case > 49:
@@ -304,8 +297,7 @@ public class GameManager : MonoBehaviour
                 MonsterSize.monsterSize = 2;
                 click01.sprite = click02;
                 worm01.sprite = worm02;
-                ClickerCalculator.src.clip = ClickerCalculator.sfx3;
-                ClickerCalculator.src.Play();
+           
 
                 break;
 
