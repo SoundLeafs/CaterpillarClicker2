@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using JetBrains.Annotations;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,9 +24,28 @@ public class GameManager : MonoBehaviour
     //Next update in seconds
     private int nextUpdate = 1;
 
-  
-  
+    //Sprites
+    public Image click01;
+    public Sprite click02;
+    public Sprite click03;
+    public Sprite click04;
+    public Sprite click05;
+    public Sprite click06;
+    public Sprite click07;
+    public Sprite click08;
+    public Sprite click09;
 
+    public Image worm01;
+    public Sprite worm02;
+    public Sprite worm03;
+    public Sprite worm04;
+    public Sprite worm05;
+    public Sprite worm06;
+    public Sprite worm07;
+    public Sprite worm08;
+    public Sprite worm09;
+
+    //Show Items
 
     public static bool showItem2 = false;
     [SerializeField] GameObject _showitem2;
@@ -76,6 +96,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject floatingTextPrefab;
     [SerializeField] private GameObject canvas;
+
+   
 
     #region Show Auto
 
@@ -131,6 +153,8 @@ public class GameManager : MonoBehaviour
         _skills2.SetActive(false);
         _skills2.SetActive(false);
         _skills3.SetActive(false);
+
+        
         #endregion
     }
 
@@ -144,11 +168,11 @@ public class GameManager : MonoBehaviour
       
 
         
-        #region Unlock Shop Items
+        #region Unlock Shop Items and MonsterSize / Stages
         //Show items when total food Consumed reaches a high enough level,
         switch (totalFoodConsumed)
         {
-            case > 3000000:
+            case > 500000:
                _showitem9.SetActive(true);
                 _showitem8.SetActive(true);
                 _showitem7.SetActive(true);
@@ -166,9 +190,13 @@ public class GameManager : MonoBehaviour
                 _stage8.SetActive(true);
                 _stage9.SetActive(true);
                 MonsterSize.monsterSize = 9;
+                click01.sprite = click09;
+                worm01.sprite = worm09;
+                ClickerCalculator.src.clip = ClickerCalculator.sfx3;
+                ClickerCalculator.src.Play();
 
                 break;
-            case > 2000000:
+            case > 200000:
                 _showitem8.SetActive(true);
                 _showitem7.SetActive(true);
                 _showitem6.SetActive(true);
@@ -184,9 +212,13 @@ public class GameManager : MonoBehaviour
                 _stage7.SetActive(true);
                 _stage8.SetActive(true);
                 MonsterSize.monsterSize = 8;
+                click01.sprite = click08;
+                worm01.sprite = worm08;
+                ClickerCalculator.src.clip = ClickerCalculator.sfx3;
+                ClickerCalculator.src.Play();
 
                 break;
-            case > 1000000:
+            case > 100000:
                 _showitem7.SetActive(true);
                 _showitem6.SetActive(true);
                 _showitem5.SetActive(true);
@@ -200,9 +232,13 @@ public class GameManager : MonoBehaviour
                 _stage6.SetActive(true);
                 _stage7.SetActive(true);
                 MonsterSize.monsterSize = 7;
+                click01.sprite = click07;
+                worm01.sprite = worm07;
+                ClickerCalculator.src.clip = ClickerCalculator.sfx3;
+                ClickerCalculator.src.Play();
 
                 break;
-            case > 500000:
+            case > 50000:
                 _showitem6.SetActive(true);
                 _showitem5.SetActive(true);
                 _showitem4.SetActive(true);
@@ -214,9 +250,13 @@ public class GameManager : MonoBehaviour
                 _stage5.SetActive(true);
                 _stage6.SetActive(true);
                 MonsterSize.monsterSize = 6;
+                click01.sprite = click06;
+                worm01.sprite = worm06;
+                ClickerCalculator.src.clip = ClickerCalculator.sfx3;
+                ClickerCalculator.src.Play();
 
                 break;
-            case > 100000:
+            case > 10000:
                 _showitem5.SetActive(true);
                 _showitem4.SetActive(true);
                 _showitem3.SetActive(true);
@@ -226,9 +266,13 @@ public class GameManager : MonoBehaviour
                 _stage4.SetActive(true);
                 _stage5.SetActive(true);
                 MonsterSize.monsterSize = 5;
+                click01.sprite = click05;
+                worm01.sprite = worm05;
+                ClickerCalculator.src.clip = ClickerCalculator.sfx3;
+                ClickerCalculator.src.Play();
 
                 break;
-            case > 15000:
+            case > 5000:
                 _showitem4.SetActive(true);
                 _showitem3.SetActive(true);
                 _showitem2.SetActive(true);
@@ -236,6 +280,10 @@ public class GameManager : MonoBehaviour
                 _stage3.SetActive(true);
                 _stage4.SetActive(true);
                 MonsterSize.monsterSize = 4;
+               click01.sprite = click04;
+                worm01.sprite = worm04;
+                ClickerCalculator.src.clip = ClickerCalculator.sfx3;
+                ClickerCalculator.src.Play();
 
                 break;
             case > 500:
@@ -244,12 +292,20 @@ public class GameManager : MonoBehaviour
                 _stage2.SetActive(true);
                 _stage3.SetActive(true);
                 MonsterSize.monsterSize = 3;
+                click01.sprite = click03;
+                worm01.sprite = worm03;
+                ClickerCalculator.src.clip = ClickerCalculator.sfx3;
+                ClickerCalculator.src.Play();
 
                 break;
             case > 49:
                 _showitem2.SetActive(true);
                 _stage2.SetActive(true);
                 MonsterSize.monsterSize = 2;
+                click01.sprite = click02;
+                worm01.sprite = worm02;
+                ClickerCalculator.src.clip = ClickerCalculator.sfx3;
+                ClickerCalculator.src.Play();
 
                 break;
 
@@ -272,13 +328,15 @@ public class GameManager : MonoBehaviour
 
         void UpdateEverySecond()
         {
+            timePassed++;
+            //every second will add x to the foodResource.
+
             if (autoEatRate > 0)
                 //if we have auto, otherwise will keep showing zero which is annoying
             {
                 ShowAuto(GameManager.autoEatRate.ToString());
                 foodResource += autoEatRate;
-                timePassed++;
-                //every second will add x to the foodResource.
+                
             }
 
             

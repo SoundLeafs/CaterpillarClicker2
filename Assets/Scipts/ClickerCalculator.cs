@@ -27,8 +27,8 @@ public class ClickerCalculator : MonoBehaviour
     public Text textItem7;
     public Text textItem8;
     public Text textItem9;
-    public AudioSource src;
-    public AudioClip sfx1, sfx2, sfx3;
+    public static AudioSource src;
+    public static AudioClip sfx1, sfx2, sfx3;
     [SerializeField] private GameObject floatingTextPrefab;
     [SerializeField] private GameObject canvas;
 
