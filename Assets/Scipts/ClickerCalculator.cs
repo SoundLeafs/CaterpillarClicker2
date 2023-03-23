@@ -274,6 +274,9 @@ public class ClickerCalculator : MonoBehaviour
     public void Eating()
         //this is code applied when we click the apple
     {
+        
+       
+
         if (GameManager.doubleHead == true)
 
         {

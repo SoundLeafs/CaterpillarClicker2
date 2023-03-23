@@ -59,10 +59,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject _showitem6;
     public static bool showItem7 = false;
     [SerializeField] GameObject _showitem7;
-    public static bool showItem8 = false;
-    [SerializeField] GameObject _showitem8;
-    public static bool showItem9 = false;
-    [SerializeField] GameObject _showitem9;
+
+
 
     //skills booleans
     public bool skills1Active = false;
@@ -97,6 +95,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject floatingTextPrefab;
     [SerializeField] private GameObject canvas;
 
+    //Will display button which when clicked shows ending
+    public static bool endingButton = false;
+    [SerializeField] GameObject _endingButton;
    
 
     #region Show Auto
@@ -137,8 +138,7 @@ public class GameManager : MonoBehaviour
         _showitem5.SetActive(false);
         _showitem6.SetActive(false);
         _showitem7.SetActive(false);
-        _showitem8.SetActive(false);
-        _showitem9.SetActive(false);
+      
 
         _stage2.SetActive(false);
         _stage3.SetActive(false);
@@ -154,6 +154,8 @@ public class GameManager : MonoBehaviour
         _skills2.SetActive(false);
         _skills3.SetActive(false);
 
+        _endingButton.SetActive(false);
+
         
         #endregion
     }
@@ -164,6 +166,15 @@ public class GameManager : MonoBehaviour
         totalFoodConsumedt.text = "Total Food Consumed = "+ totalFoodConsumed;
         autoEatPerSecondt.text = "Auto Eat Per Second = " + autoEatRate;
         timePassedt.text = timePassed + " Seconds of Chaos";
+
+        //DEBUG CODE REMOVE BEFORE SHIPPING
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            foodResource += 100000;
+            totalFoodConsumed += 100000;
+
+        }
+        //REMOVE THIS ABOVE
 
         //Disable skills if time up
         if (skills1Active && ClickerCalculator.skills1ActiveTime <1)
@@ -192,8 +203,11 @@ public class GameManager : MonoBehaviour
         switch (totalFoodConsumed)
         {
             case > 500000:
-               _showitem9.SetActive(true);
-                _showitem8.SetActive(true);
+                _endingButton.SetActive(true);
+                     break;
+
+            case > 300000:
+          
                 _showitem7.SetActive(true);
                 _showitem6.SetActive(true);
                 _showitem5.SetActive(true);
@@ -215,7 +229,7 @@ public class GameManager : MonoBehaviour
 
                 break;
             case > 200000:
-                _showitem8.SetActive(true);
+           
                 _showitem7.SetActive(true);
                 _showitem6.SetActive(true);
                 _showitem5.SetActive(true);
@@ -353,6 +367,7 @@ public class GameManager : MonoBehaviour
             {
                 ShowAuto(GameManager.autoEatRate.ToString());
                 foodResource += autoEatRate;
+                totalFoodConsumed += autoEatRate;
                 
             }
 

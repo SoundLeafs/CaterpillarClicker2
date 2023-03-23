@@ -22,6 +22,6 @@ public class MonsterSize : MonoBehaviour
     void Update()
     {
         //Adjust size of Monster
-        transform.localScale = originalSize * monsterSize;
+        transform.localScale = originalSize * (monsterSize)/2;
     }
 }
