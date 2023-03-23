@@ -27,8 +27,18 @@ public class ClickerCalculator : MonoBehaviour
     public Text textItem7;
     public Text textItem8;
     public Text textItem9;
+
+    //Show Levels of items
+    public Text item1LVtxt;
+    public Text item2LVtxt;
+    public Text item3LVtxt;
+    public Text item4LVtxt;
+    public Text item5LVtxt;
+    public Text item6LVtxt;
+    public Text item7LVtxt;
+
     public AudioSource src;
-    public AudioClip sfx1, sfx2, sfx3;
+    public AudioClip sfx1, sfx2, sfx3, sfx4, sfx5, sfx6;
     [SerializeField] private GameObject floatingTextPrefab;
     [SerializeField] private GameObject canvas;
 
@@ -58,6 +68,33 @@ public class ClickerCalculator : MonoBehaviour
 
     public static bool showItemBox9 = false;
     [SerializeField] GameObject _showItemBox9;
+
+    //Item level description
+
+    public static bool showItemLV1Box = false;
+    [SerializeField] GameObject _showItemLv1Box;
+
+    public static bool showItemLV2Box = false;
+    [SerializeField] GameObject _showItemLv2Box;
+    
+    public static bool showItemLV3Box = false;
+    [SerializeField] GameObject _showItemLv3Box;
+
+    public static bool showItemLV4Box = false;
+    [SerializeField] GameObject _showItemLv4Box;
+
+    public static bool showItemLV5Box = false;
+    [SerializeField] GameObject _showItemLv5Box;
+
+    public static bool showItemLV6Box = false;
+    [SerializeField] GameObject _showItemLv6Box;
+
+    public static bool showItemLV7Box = false;
+    [SerializeField] GameObject _showItemLv7Box;
+
+
+
+
 
     //Skills Bool
     public static bool skills1Active;
@@ -348,14 +385,12 @@ public class ClickerCalculator : MonoBehaviour
                 
             case 2:
                 foodCost = itemPriceArray[1] * item2Level;
-                if (GameManager.foodResource >= foodCost)
+                if ((GameManager.foodResource >= foodCost) && GameManager.doubleHead == false)
                 {
                     GameManager.foodResource -= foodCost;
-                    GameManager.eatRate += itemEatRate[1];
-                    GameManager.autoEatRate += itemAutoRate[1];
+                    GameManager.doubleHead= true;
                     src.clip = sfx1;
                     src.Play();
-                    item2Level++;
                     MouseOver(2);
                 }
                 else
@@ -370,7 +405,7 @@ public class ClickerCalculator : MonoBehaviour
                 if (GameManager.foodResource >= foodCost)
                 {
                     GameManager.foodResource -= foodCost;
-                    GameManager.eatRate += itemEatRate[2];
+                    GameManager.eatRate += itemEatRate[0];
                     GameManager.autoEatRate += itemAutoRate[2]; 
                     src.clip = sfx1;
                     src.Play();
@@ -443,14 +478,12 @@ public class ClickerCalculator : MonoBehaviour
 
             case 7:
                 foodCost = itemPriceArray[6] * item7Level;
-                if (GameManager.foodResource >= foodCost)
+                if (GameManager.foodResource >= foodCost && GameManager.tripleHead == false)
                 {
                     GameManager.foodResource -= foodCost;
-                    GameManager.eatRate +=  itemEatRate[6]; 
-                    GameManager.autoEatRate +=  itemAutoRate[6]; 
-                    src.clip = sfx1;
+                    GameManager.tripleHead= true;
+                    src.clip = sfx4;
                     src.Play();
-                    item7Level++;
                     MouseOver(7);
                 }
                 else
@@ -507,15 +540,18 @@ public class ClickerCalculator : MonoBehaviour
             case 1:
                 //Math Pow will multiple the first number (10) by the next number after comma (item1level)
                 _showItemBox1.SetActive(true);
-                //Debug
-                Console.WriteLine("ShowItemBox");
                 textItem1.text = "Cost = "+ Math.Pow(itemPriceArray[0],item1Level) + "\n Gain + 1 Food Per Click";
                 
                 break;
 
             case 2:
-                _showItemBox2.SetActive(true);
-                textItem2.text = "Cost = " + itemPriceArray[1] * item2Level + "\n Gain + 65 Food Per Click";
+                if (GameManager.doubleHead == false)
+                    //if we dont have double head display price, if we do then dont
+                {
+                    _showItemBox2.SetActive(true);
+                    textItem2.text = "Cost = " + itemPriceArray[1] * item2Level + "\n All Clicks worth Double";
+                    break;
+                }
                 break;
 
             case 3:
@@ -539,8 +575,14 @@ public class ClickerCalculator : MonoBehaviour
                 break;
 
             case 7:
-                _showItemBox7.SetActive(true);
-                textItem7.text = "Cost = " + itemPriceArray[6] * item7Level + "\n Gain + 36 Food Per Click & 250 Auto";
+                if (GameManager.tripleHead == false)
+                    //if we dont have triple head
+                {
+                    _showItemBox7.SetActive(true);
+                    textItem7.text = "Cost = " + itemPriceArray[6] * item7Level + "\n All Clicks worth TRIPLE";
+                    break;
+                }
+               
                 break;
 
             case 8:
@@ -554,54 +596,66 @@ public class ClickerCalculator : MonoBehaviour
                 break;
         }
     }
+
+   
+
     public void MouseAway(int num)
     //this is the code we run when clicking on a Item to buy
     {
         switch (num)
         {
             case 1:
-                textItem1.text = "Item1 \n Lv" + item1Level;
+                item1LVtxt.text = "Bite \n Lv" + item1Level;
+                _showItemLv1Box.SetActive(true);
                 _showItemBox1.SetActive(false);
                 break;
 
             case 2:
-                textItem2.text = "Item2 \n Lv" + item2Level;
+                item2LVtxt.text = "Twin Head \n Lv" + item2Level;
+                _showItemLv2Box.SetActive(true);
                 _showItemBox2.SetActive(false);
                 break;
                 
 
             case 3:
-                textItem3.text = "Item3 \n Lv" + item3Level;
+                item3LVtxt.text = "InsectArmy \n Lv" + item3Level;
+                _showItemLv3Box.SetActive(true);
                 _showItemBox3.SetActive(false);
                 break;
 
             case 4:
-                textItem4.text = "Item4 \n Lv" + item4level;
+                item4LVtxt.text = "Blackhole Stomach \n Lv" + item4level;
+                _showItemLv4Box.SetActive(true);
                 _showItemBox4.SetActive(false);
                 break;
 
             case 5:
-                textItem5.text = "Item5 \n Lv" + item5level;
+                item5LVtxt.text = "Human Army \n Lv" + item5level;
+                _showItemLv5Box.SetActive(true);
                 _showItemBox5.SetActive(false);
                 break;
 
             case 6:
-                textItem6.text = "Item6 \n Lv" + item6Level;
+                item6LVtxt.text = "Grabby Hands \n Lv" + item6Level;
+                _showItemLv6Box.SetActive(true);
                 _showItemBox6.SetActive(false);
                 break;;
 
             case 7:
-                textItem7.text = "Item7 \n Lv" + item7Level;
+                item7LVtxt.text = "Cerberus \n Lv" + item7Level;
+                _showItemLv7Box.SetActive(true);
                 _showItemBox7.SetActive(false);
                 break;
 
             case 8:
                 textItem8.text = "Item8 \n Lv" + item8Level;
                 _showItemBox8.SetActive(false);
+                _showItemBox8.SetActive(false);
                 break;
 
             case 9:
                 textItem9.text = "Item9 \n Lv" + item9Level;
+                _showItemBox9.SetActive(false);
                 _showItemBox9.SetActive(false);
                 break;
         }
