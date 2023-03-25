@@ -217,9 +217,9 @@ public class ClickerCalculator : MonoBehaviour
         else
         {
             //if we dont have it and click and we have >5000 then we buy it
-            if (GameManager.foodResource >= 10000)
+            if (GameManager.foodResource >= 7500)
             {
-                GameManager.foodResource -= 10000;
+                GameManager.foodResource -= 7500;
                 skills2Bought = true;
                 src.clip = sfx1;
                 src.Play();
@@ -252,9 +252,9 @@ public class ClickerCalculator : MonoBehaviour
         else
         {
             //if we dont have it and click and we have >5000 then we buy it
-            if (GameManager.foodResource >= 20000)
+            if (GameManager.foodResource >= 1000)
             {
-                GameManager.foodResource -= 20000;
+                GameManager.foodResource -= 1000;
                 skills3Bought = true;
                 src.clip = sfx1;
                 src.Play();
@@ -274,10 +274,35 @@ public class ClickerCalculator : MonoBehaviour
     public void Eating()
         //this is code applied when we click the apple
     {
-        
-       
 
-        if (GameManager.doubleHead == true)
+
+        if (GameManager.tripleHead == true)
+        {
+            if (skills1Active)
+            {
+                //run 3 times
+                for (int i = 0; i < 3; i++)
+                {
+                    ShowClicks((3 * GameManager.eatRate).ToString());
+                    GameManager.foodResource += 3 * GameManager.eatRate;
+                    //if we have triple head then all clicks are worth triple
+                    GameManager.totalFoodConsumed += 3 * GameManager.eatRate;
+                    //update the total food consumed
+                }
+            }
+            else
+            {
+                ShowClicks((3 * GameManager.eatRate).ToString());
+                GameManager.foodResource += 3 * GameManager.eatRate;
+                //if we have triple head then all clicks are worth triple
+                GameManager.totalFoodConsumed += 3 * GameManager.eatRate;
+                //update the total food consumed
+            }
+
+
+        }
+
+        else if (GameManager.doubleHead == true)
 
         {
             if (skills1Active)
@@ -307,31 +332,7 @@ public class ClickerCalculator : MonoBehaviour
 
         }   
        
-        else if(GameManager.tripleHead == true) 
-        {
-            if (skills1Active)
-            {
-                //run 3 times
-                for (int i = 0; i < 3; i++)
-                {
-                    ShowClicks((3 * GameManager.eatRate).ToString());
-                    GameManager.foodResource += 3 * GameManager.eatRate;
-                    //if we have triple head then all clicks are worth triple
-                    GameManager.totalFoodConsumed += 3 * GameManager.eatRate;
-                    //update the total food consumed
-                }
-            }
-            else
-            {
-                ShowClicks((3 * GameManager.eatRate).ToString());
-                GameManager.foodResource += 3 * GameManager.eatRate;
-                //if we have triple head then all clicks are worth triple
-                GameManager.totalFoodConsumed += 3 * GameManager.eatRate;
-                //update the total food consumed
-            }
-
-
-        }
+        
 
         else
         {
@@ -366,7 +367,7 @@ public class ClickerCalculator : MonoBehaviour
         switch (num)
         {
             case 1:
-                int foodCost = Convert.ToInt32(Math.Pow(itemPriceArray[0], item1Level));
+                int foodCost = itemPriceArray[0] * item1Level;
                 if (GameManager.foodResource >= foodCost)
                 {
                     GameManager.foodResource -= foodCost;
@@ -375,7 +376,6 @@ public class ClickerCalculator : MonoBehaviour
                     src.clip = sfx1;
                     src.Play();
                     item1Level++;
-                    Debug.Log(itemPriceArray[1]);
                     MouseOver(1);
                 }
                 else
@@ -408,7 +408,7 @@ public class ClickerCalculator : MonoBehaviour
                 if (GameManager.foodResource >= foodCost)
                 {
                     GameManager.foodResource -= foodCost;
-                    GameManager.eatRate += itemEatRate[0];
+                    GameManager.eatRate += itemEatRate[2];
                     GameManager.autoEatRate += itemAutoRate[2]; 
                     src.clip = sfx1;
                     src.Play();
@@ -497,6 +497,7 @@ public class ClickerCalculator : MonoBehaviour
                 break;
 
             case 8:
+                //not in use
                 foodCost = itemPriceArray[7] * item8Level;
                 if (GameManager.foodResource >= foodCost)
                 {
@@ -516,6 +517,7 @@ public class ClickerCalculator : MonoBehaviour
                 break;
 
             case 9:
+                //not in use
                 foodCost = itemPriceArray[8] * item9Level;
                 if (GameManager.foodResource >= foodCost)
                 {
@@ -541,13 +543,15 @@ public class ClickerCalculator : MonoBehaviour
         switch (num)
         {
             case 1:
+                //Bite
                 //Math Pow will multiple the first number (10) by the next number after comma (item1level)
                 _showItemBox1.SetActive(true);
-                textItem1.text = "Cost = "+ Math.Pow(itemPriceArray[0],item1Level) + "\n Gain + 1 Food Per Click";
+                textItem1.text = "Cost = "+ itemPriceArray[0] * item1Level + "\n Gain + 1 Food Per Click";
                 
                 break;
 
             case 2:
+                //Double Head
                 if (GameManager.doubleHead == false)
                     //if we dont have double head display price, if we do then dont
                 {
@@ -558,26 +562,31 @@ public class ClickerCalculator : MonoBehaviour
                 break;
 
             case 3:
+                //Insect Army
                 _showItemBox3.SetActive(true);
-                textItem3.text = "Cost = " + itemPriceArray[2] * item3Level + "\n Gain + 75 Auto Eat";
+                textItem3.text = "Cost = " + itemPriceArray[2] * item3Level + "\n Gain + 2 Auto Eat";
                 break;
 
             case 4:
+                //Blackhole Stomach
                 _showItemBox4.SetActive(true);
-                textItem4.text = "Cost = " + itemPriceArray[3] * item4level + "\n Gain + 1250 Food Per Click";
+                textItem4.text = "Cost = " + itemPriceArray[3] * item4level + "\n Gain + 25 Food Per Click";
                 break;
 
             case 5:
+                //Human Army
                 _showItemBox5.SetActive(true);
-                textItem5.text = "Cost = " + itemPriceArray[4] * item5level + "\n Gain + 3000 Food Per Click";
+                textItem5.text = "Cost = " + itemPriceArray[4] * item5level + "\n Gain + 15 Auto Eat";
                 break;
 
             case 6:
+                //Arms
                 _showItemBox6.SetActive(true);
-                textItem6.text = "Cost = " + itemPriceArray[5] * item6Level + "\n Gain + 350 Auto Eat";
+                textItem6.text = "Cost = " + itemPriceArray[5] * item6Level + "\n +15 per click and +15 Auto";
                 break;
 
             case 7:
+                //Dragon Head
                 if (GameManager.tripleHead == false)
                     //if we dont have triple head
                 {
@@ -589,11 +598,13 @@ public class ClickerCalculator : MonoBehaviour
                 break;
 
             case 8:
+                //Currently not in use
                 _showItemBox8.SetActive(true);
                 textItem8.text = "Cost = " + itemPriceArray[7] * item8Level + "\n Gain + 15000 Food Per Click";
                 break;
 
             case 9:
+                //Currently not in use
                 _showItemBox9.SetActive(true);
                 textItem9.text = "Cost = " + itemPriceArray[8] * item9Level+ "\n Gain + 10000 Food Per Click";
                 break;
@@ -614,7 +625,7 @@ public class ClickerCalculator : MonoBehaviour
                 break;
 
             case 2:
-                item2LVtxt.text = "Twin Head \n Lv" + item2Level;
+                item2LVtxt.text = "Twin Head = " + GameManager.doubleHead;
                 _showItemLv2Box.SetActive(true);
                 _showItemBox2.SetActive(false);
                 break;
@@ -645,18 +656,20 @@ public class ClickerCalculator : MonoBehaviour
                 break;;
 
             case 7:
-                item7LVtxt.text = "Cerberus \n Lv" + item7Level;
+                item7LVtxt.text = "Dragon Head = " + GameManager.tripleHead;
                 _showItemLv7Box.SetActive(true);
                 _showItemBox7.SetActive(false);
                 break;
 
             case 8:
+                //not in use
                 textItem8.text = "Item8 \n Lv" + item8Level;
                 _showItemBox8.SetActive(false);
                 _showItemBox8.SetActive(false);
                 break;
 
             case 9:
+                //not in use
                 textItem9.text = "Item9 \n Lv" + item9Level;
                 _showItemBox9.SetActive(false);
                 _showItemBox9.SetActive(false);
