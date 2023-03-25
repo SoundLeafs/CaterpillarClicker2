@@ -151,7 +151,6 @@ public class GameManager : MonoBehaviour
 
         _skills1.SetActive(false);
         _skills2.SetActive(false);
-        _skills2.SetActive(false);
         _skills3.SetActive(false);
 
         _endingButton.SetActive(false);
@@ -202,11 +201,11 @@ public class GameManager : MonoBehaviour
         //Show items when total food Consumed reaches a high enough level,
         switch (totalFoodConsumed)
         {
-            case > 500000:
+            case > 300000:
                 _endingButton.SetActive(true);
                      break;
 
-            case > 300000:
+            case > 250000:
           
                 _showitem7.SetActive(true);
                 _showitem6.SetActive(true);
@@ -222,6 +221,10 @@ public class GameManager : MonoBehaviour
                 _stage7.SetActive(true);
                 _stage8.SetActive(true);
                 _stage9.SetActive(true);
+                _skills1.SetActive(true);
+                _skills2.SetActive(true);
+                _skills3.SetActive(true);
+
                 MonsterSize.monsterSize = 9;
                 click01.sprite = click09;
                 worm01.sprite = worm09;
@@ -243,6 +246,11 @@ public class GameManager : MonoBehaviour
                 _stage6.SetActive(true);
                 _stage7.SetActive(true);
                 _stage8.SetActive(true);
+                _skills1.SetActive(true);
+                _skills2.SetActive(true);
+                _skills3.SetActive(true);
+
+
                 MonsterSize.monsterSize = 8;
                 click01.sprite = click08;
                 worm01.sprite = worm08;
@@ -262,6 +270,11 @@ public class GameManager : MonoBehaviour
                 _stage5.SetActive(true);
                 _stage6.SetActive(true);
                 _stage7.SetActive(true);
+                _skills1.SetActive(true);
+                _skills2.SetActive(true);
+                _skills3.SetActive(true);
+
+
                 MonsterSize.monsterSize = 7;
                 click01.sprite = click07;
                 worm01.sprite = worm07;
@@ -279,6 +292,11 @@ public class GameManager : MonoBehaviour
                 _stage4.SetActive(true);
                 _stage5.SetActive(true);
                 _stage6.SetActive(true);
+                _skills1.SetActive(true);
+                _skills2.SetActive(true);
+                _skills3.SetActive(true);
+
+
                 MonsterSize.monsterSize = 6;
                 click01.sprite = click06;
                 worm01.sprite = worm06;
@@ -294,6 +312,10 @@ public class GameManager : MonoBehaviour
                 _stage3.SetActive(true);
                 _stage4.SetActive(true);
                 _stage5.SetActive(true);
+                _skills1.SetActive(true);
+                _skills2.SetActive(true);
+                _skills3.SetActive(true);
+
                 MonsterSize.monsterSize = 5;
                 click01.sprite = click05;
                 worm01.sprite = worm05;
@@ -307,6 +329,10 @@ public class GameManager : MonoBehaviour
                 _stage2.SetActive(true);
                 _stage3.SetActive(true);
                 _stage4.SetActive(true);
+                _skills1.SetActive(true);
+                _skills2.SetActive(true);
+
+
                 MonsterSize.monsterSize = 4;
                click01.sprite = click04;
                 worm01.sprite = worm04;
@@ -318,19 +344,24 @@ public class GameManager : MonoBehaviour
                 _showitem2.SetActive(true);
                 _stage2.SetActive(true);
                 _stage3.SetActive(true);
+                _skills1.SetActive(true);
+
+
                 MonsterSize.monsterSize = 3;
                 click01.sprite = click03;
                 worm01.sprite = worm03;
                
 
                 break;
-            case > 49:
+            case > 99:
                 _showitem2.SetActive(true);
                 _stage2.SetActive(true);
                 MonsterSize.monsterSize = 2;
                 click01.sprite = click02;
                 worm01.sprite = worm02;
-           
+                
+
+
 
                 break;
 

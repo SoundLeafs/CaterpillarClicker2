@@ -37,6 +37,12 @@ public class ClickerCalculator : MonoBehaviour
     public Text item6LVtxt;
     public Text item7LVtxt;
 
+    //Skills text box
+
+    public Text skill1Text;
+    public Text skill2Text;
+    public Text skill3Text;
+
     public AudioSource src;
     public AudioClip sfx1, sfx2, sfx3, sfx4, sfx5, sfx6;
     [SerializeField] private GameObject floatingTextPrefab;
@@ -92,7 +98,15 @@ public class ClickerCalculator : MonoBehaviour
     public static bool showItemLV7Box = false;
     [SerializeField] GameObject _showItemLv7Box;
 
+    //skills box
+    public static bool showSkillsBox1 = false;
+    [SerializeField] GameObject _showSkillsBox1;
 
+    public static bool showSkillsBox2 = false;
+    [SerializeField] GameObject _showSkillsBox2;
+
+    public static bool showSkillsBox3 = false;
+    [SerializeField] GameObject _showSkillsBox3;
 
 
 
@@ -252,9 +266,9 @@ public class ClickerCalculator : MonoBehaviour
         else
         {
             //if we dont have it and click and we have >5000 then we buy it
-            if (GameManager.foodResource >= 1000)
+            if (GameManager.foodResource >= 10000)
             {
-                GameManager.foodResource -= 1000;
+                GameManager.foodResource -= 10000;
                 skills3Bought = true;
                 src.clip = sfx1;
                 src.Play();
@@ -597,17 +611,34 @@ public class ClickerCalculator : MonoBehaviour
                
                 break;
 
+                //SKILLS BELOW
+
             case 8:
-                //Currently not in use
-                _showItemBox8.SetActive(true);
-                textItem8.text = "Cost = " + itemPriceArray[7] * item8Level + "\n Gain + 15000 Food Per Click";
+                //Skill 1
+                _showSkillsBox1.SetActive(true);
+                if (skills1Bought)
+                {
+
+                }
+                else
+                {
+                    skill1Text.text = "$5,000 Unlock Triple-click";
+                }
+                
                 break;
 
             case 9:
-                //Currently not in use
-                _showItemBox9.SetActive(true);
-                textItem9.text = "Cost = " + itemPriceArray[8] * item9Level+ "\n Gain + 10000 Food Per Click";
+                //Skill 2
+               _showSkillsBox2.SetActive(true);
+                skill2Text.text = "$7,500 Unlock Propaganda";
                 break;
+
+            case 10:
+                //Skill 3
+                _showSkillsBox3.SetActive(true);
+                skill3Text.text = "$10,000 Unlock Resource Magnet";
+                break;
+
         }
     }
 
@@ -661,18 +692,23 @@ public class ClickerCalculator : MonoBehaviour
                 _showItemBox7.SetActive(false);
                 break;
 
+                //SKILLS BELOW
+
             case 8:
                 //not in use
-                textItem8.text = "Item8 \n Lv" + item8Level;
-                _showItemBox8.SetActive(false);
-                _showItemBox8.SetActive(false);
+                
+               
+                _showSkillsBox1.SetActive(false);
                 break;
 
             case 9:
                 //not in use
-                textItem9.text = "Item9 \n Lv" + item9Level;
-                _showItemBox9.SetActive(false);
-                _showItemBox9.SetActive(false);
+              
+                _showSkillsBox2.SetActive(false);
+                break;
+
+            case 10:
+                _showSkillsBox3.SetActive(false); 
                 break;
         }
     }
