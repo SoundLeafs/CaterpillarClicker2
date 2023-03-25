@@ -43,6 +43,17 @@ public class ClickerCalculator : MonoBehaviour
     public Text skill2Text;
     public Text skill3Text;
 
+    //Sprites for AutoEat, using gameobject to keep attached animation vs sprite
+    public GameObject humanArmySprite;
+    public GameObject insectArmySprite;
+    public Transform parentTransform;
+    //made a oublic canvas
+    public Canvas canvas1;
+
+
+
+
+    //Audio stuff
     public AudioSource src;
     public AudioClip sfx1, sfx2, sfx3, sfx4, sfx5, sfx6;
     [SerializeField] private GameObject floatingTextPrefab;
@@ -126,8 +137,24 @@ public class ClickerCalculator : MonoBehaviour
     public static int skills3Cooldown;
     public static int skills3ActiveTime;
 
+    //Create new sprite function
+    /*
+     * Looks like i dont need this after all
+    void CreateNewInsect()
+    {
+        GameObject newGameObject = Instantiate(insectArmySprite);
+        RectTransform rectTransform = newGameObject.AddComponent<RectTransform>();
+    }
+    */
 
     //Hide TextBox when not in use
+
+    //My delayfunction, call this to wait 0.1 before continueing
+    IEnumerator WaitCoroutine()
+    {
+        yield return new WaitForSeconds(0.3f);
+        Debug.Log("CoRoutine Working");
+    }
 
     #region Show Clicks
     public void ShowClicks(string text)
@@ -167,6 +194,8 @@ public class ClickerCalculator : MonoBehaviour
         item9Level =1;    
         itemNo= 0;
 
+        humanArmySprite.SetActive(false);
+        insectArmySprite.SetActive(false);
        
         
         
@@ -185,6 +214,7 @@ public class ClickerCalculator : MonoBehaviour
             if (skills1Cooldown <=0)
             {
                 skills1Active= true;
+                Debug.Log("Skill1 is active");
                 //set cooldown to 30 seconds
                 skills1Cooldown= 30;
                 skills1ActiveTime= 10;
@@ -225,6 +255,7 @@ public class ClickerCalculator : MonoBehaviour
                 //set cooldown to 60 seconds
                 skills2Cooldown = 60;
                 skills2ActiveTime= 15;
+                Debug.Log("Skill2 is active");
             }
         }
 
@@ -260,6 +291,7 @@ public class ClickerCalculator : MonoBehaviour
                 //set cooldown to 90 seconds
                 skills3Cooldown = 90;
                 skills3ActiveTime= 15;
+                Debug.Log("Skill3 is Active");
             }
         }
 
@@ -302,6 +334,7 @@ public class ClickerCalculator : MonoBehaviour
                     //if we have triple head then all clicks are worth triple
                     GameManager.totalFoodConsumed += 3 * GameManager.eatRate;
                     //update the total food consumed
+                    StartCoroutine(WaitCoroutine());
                 }
             }
             else
@@ -329,7 +362,8 @@ public class ClickerCalculator : MonoBehaviour
                     //if we have double head then all clicks are worth double
                     GameManager.totalFoodConsumed += 2 * GameManager.eatRate;
                     //update the total food consumed
-                    
+                    StartCoroutine(WaitCoroutine());
+
                 }
 
             }
@@ -359,6 +393,7 @@ public class ClickerCalculator : MonoBehaviour
                     //if we have neither of these then all clicks are worth 1 x whatever other additons we have earned
                     GameManager.totalFoodConsumed += GameManager.eatRate;
                     //update the total food consumed
+                    StartCoroutine(WaitCoroutine());
                 }
             }
             else
@@ -381,6 +416,7 @@ public class ClickerCalculator : MonoBehaviour
         switch (num)
         {
             case 1:
+                //Teeth Item
                 int foodCost = itemPriceArray[0] * item1Level;
                 if (GameManager.foodResource >= foodCost)
                 {
@@ -401,6 +437,7 @@ public class ClickerCalculator : MonoBehaviour
                 break;
                 
             case 2:
+                //DoubleHead item
                 foodCost = itemPriceArray[1] * item2Level;
                 if ((GameManager.foodResource >= foodCost) && GameManager.doubleHead == false)
                 {
@@ -418,6 +455,7 @@ public class ClickerCalculator : MonoBehaviour
                 break;
 
             case 3:
+                //Insect Army
                 foodCost = itemPriceArray[2] * item3Level;
                 if (GameManager.foodResource >= foodCost)
                 {
@@ -428,6 +466,13 @@ public class ClickerCalculator : MonoBehaviour
                     src.Play();
                     item3Level++;
                     MouseOver(3);
+                    //Create a new sprite which has animation
+                    // Sprite newSprite = Instantiate(insectArmySprite); This did not work, only does sprite with no animation? Not on canvas? Dunno
+                    //did not give any world direction, hopefully takes from parent
+                    //This works but does not appear on canvas
+                    //GameObject newGameObject = Instantiate(insectArmySprite, parentTransform);
+                    //This was bad for performance, just gonna have one
+                    insectArmySprite.SetActive(true);
                 }
                 else
                 {
@@ -437,6 +482,7 @@ public class ClickerCalculator : MonoBehaviour
                 break;
 
             case 4:
+                //Blackhole Stomach
                 foodCost = itemPriceArray[3] * item4level;
                 if (GameManager.foodResource >= foodCost)
                 {
@@ -456,6 +502,7 @@ public class ClickerCalculator : MonoBehaviour
                 break;
 
             case 5:
+                //Human Army
                 foodCost = itemPriceArray[4] * item5level;
                 if (GameManager.foodResource >= foodCost)
                 {
@@ -466,6 +513,7 @@ public class ClickerCalculator : MonoBehaviour
                     src.Play();
                     item5level++;
                     MouseOver(5);
+                    humanArmySprite.SetActive(true);
                 }
                 else
                 {
@@ -618,7 +666,7 @@ public class ClickerCalculator : MonoBehaviour
                 _showSkillsBox1.SetActive(true);
                 if (skills1Bought)
                 {
-
+                    skill1Text.text = "Triple-Click: Active for 15Seconds \n 60 Second Cooldown";
                 }
                 else
                 {
@@ -629,15 +677,33 @@ public class ClickerCalculator : MonoBehaviour
 
             case 9:
                 //Skill 2
-               _showSkillsBox2.SetActive(true);
-                skill2Text.text = "$7,500 Unlock Propaganda";
-                break;
+                _showSkillsBox2.SetActive(true);
+                if (skills2Bought)
+                {
+                    skill2Text.text = "Propaganda: Increase rate of Auto-Clicks by 3x \n Active 15 Seconds, 60 Second Cooldown";
+                    break;
+                }
+                else
+                {
+                    skill2Text.text = "$7,500 Unlock Propaganda";
+                    break;
+                }
+               
 
             case 10:
                 //Skill 3
                 _showSkillsBox3.SetActive(true);
-                skill3Text.text = "$10,000 Unlock Resource Magnet";
-                break;
+                if (skills3Bought)
+                {
+                    skill3Text.text = "Magnet: Brings back the money spent on your last upgrade, \n 60 Second Cooldown";
+                    break;
+                }
+                else
+                {
+                    skill3Text.text = "$10,000 Unlock Resource Magnet";
+                    break;
+                }
+                
 
         }
     }

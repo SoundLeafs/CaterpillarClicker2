@@ -396,9 +396,19 @@ public class GameManager : MonoBehaviour
             if (autoEatRate > 0)
                 //if we have auto, otherwise will keep showing zero which is annoying
             {
-                ShowAuto(GameManager.autoEatRate.ToString());
-                foodResource += autoEatRate;
-                totalFoodConsumed += autoEatRate;
+                if (skills2Active)
+                {
+                    ShowAuto(GameManager.autoEatRate.ToString());
+                    foodResource += autoEatRate*3;
+                    totalFoodConsumed += autoEatRate*3;
+                }
+                else
+                {
+                    ShowAuto(GameManager.autoEatRate.ToString());
+                    foodResource += autoEatRate;
+                    totalFoodConsumed += autoEatRate;
+                } 
+                   
                 
             }
 

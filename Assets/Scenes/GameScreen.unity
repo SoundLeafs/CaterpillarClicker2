@@ -2841,7 +2841,6 @@ GameObject:
   - component: {fileID: 776323637}
   - component: {fileID: 776323639}
   - component: {fileID: 776323640}
-  - component: {fileID: 776323641}
   m_Layer: 5
   m_Name: ClickableObject
   m_TagString: Untagged
@@ -2997,18 +2996,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &776323641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776323635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dae55438f634e149a399f64884709e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &777454239
 GameObject:
   m_ObjectHideFlags: 0
@@ -9155,6 +9142,10 @@ MonoBehaviour:
   skill1Text: {fileID: 817754111}
   skill2Text: {fileID: 2056040070}
   skill3Text: {fileID: 1413685795}
+  humanArmySprite: {fileID: 2135560994}
+  insectArmySprite: {fileID: 1082983095}
+  parentTransform: {fileID: 1082983096}
+  canvas1: {fileID: 0}
   src: {fileID: 2143344087}
   sfx1: {fileID: 8300000, guid: f1da84fa5ed95594d94adc2f1ec9ab82, type: 3}
   sfx2: {fileID: 8300000, guid: a781501421a5d7842bd47330fea236eb, type: 3}
