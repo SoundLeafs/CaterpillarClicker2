@@ -45,6 +45,26 @@ public class GameManager : MonoBehaviour
     public Sprite worm08;
     public Sprite worm09;
 
+    public Image actImage;
+    public Sprite[] actImagesArray;
+    public GameObject actVisible;
+
+
+    public void ChangeAct(int i)
+    {
+        //Change our sprite taking input int from the button we click on
+        actImage.sprite = actImagesArray[i];
+        //show our image
+        actVisible.SetActive(true);
+    } 
+
+    public void HideAct()
+    {
+        //hide our Image
+        actVisible.SetActive(false);
+    }
+
+
     //Show Items
 
     public static bool showItem2 = false;
@@ -121,7 +141,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         #region variables initialise
-      
+        actVisible.SetActive(false);
 
         foodResource = 0;
         eatRate = 1;
@@ -387,10 +407,13 @@ public class GameManager : MonoBehaviour
             timePassed++;
             ClickerCalculator.skills1Cooldown--;
             ClickerCalculator.skills1ActiveTime--;
+            Debug.Log(ClickerCalculator.skills1Cooldown);
             ClickerCalculator.skills2Cooldown--;
             ClickerCalculator.skills2ActiveTime--;
+            Debug.Log(ClickerCalculator.skills2Cooldown);
             ClickerCalculator.skills3Cooldown--;
             ClickerCalculator.skills3ActiveTime--;
+            Debug.Log(ClickerCalculator.skills3Cooldown);
             //every second will add x to the foodResource.
 
             if (autoEatRate > 0)

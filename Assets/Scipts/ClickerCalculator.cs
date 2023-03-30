@@ -50,7 +50,25 @@ public class ClickerCalculator : MonoBehaviour
     //made a oublic canvas
     public Canvas canvas1;
 
+    //Slider related
+    public Slider sliderSkill01;
+    public Slider sliderSkill02;
+    public Slider sliderSkill03;
 
+    public void SetSlider01()
+    {
+        sliderSkill01.value = 0.5f;
+    }
+
+    public void SetSlider02(int time)
+    {
+        sliderSkill01.value = Mathf.Clamp01(skills2Cooldown/60);
+    }
+
+    public void SetSlider03(int time)
+    {
+        sliderSkill01.value = Mathf.Clamp01(skills3Cooldown/90);
+    }
 
 
     //Audio stuff
