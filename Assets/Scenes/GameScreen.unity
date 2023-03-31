@@ -361,12 +361,12 @@ MonoBehaviour:
   click01: {fileID: 776323637}
   click02: {fileID: 21300000, guid: 38ea2877ffd1d4c41910132603586e10, type: 3}
   click03: {fileID: 21300000, guid: 36e4f6fff79db774a9ce673c865492b5, type: 3}
-  click04: {fileID: 21300000, guid: bbd9703dd848bf2439b400665a391828, type: 3}
+  click04: {fileID: 21300000, guid: ccfcb63482345644299403cd742007b4, type: 3}
   click05: {fileID: 21300000, guid: 91aea2f72e6dba64381a1aa4b2bac9ca, type: 3}
   click06: {fileID: 21300000, guid: 84ac8ad184d449241a67a6c149627a6b, type: 3}
   click07: {fileID: 21300000, guid: bd748652588e85345b0232aacde80953, type: 3}
   click08: {fileID: 21300000, guid: c4d1d7593c9074b409c5f841d8e84602, type: 3}
-  click09: {fileID: 0}
+  click09: {fileID: 21300000, guid: c4d1d7593c9074b409c5f841d8e84602, type: 3}
   worm01: {fileID: 1658413016}
   worm02: {fileID: 21300000, guid: 9781f329f124ea945a81b4e1300c7813, type: 3}
   worm03: {fileID: 21300000, guid: 2cf7c1359f2341e42b7264de38eea9af, type: 3}
