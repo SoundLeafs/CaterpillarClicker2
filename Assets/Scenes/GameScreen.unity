@@ -359,14 +359,32 @@ MonoBehaviour:
   autoEatPerSecondt: {fileID: 357342534}
   timePassedt: {fileID: 791688179}
   click01: {fileID: 776323637}
-  click02: {fileID: 21300000, guid: cdbcac5639520744f9ec9f08e379f41c, type: 3}
-  click03: {fileID: 21300000, guid: 86efb7474a5906140a9e8a8bec04ccb2, type: 3}
-  click04: {fileID: 21300000, guid: bbd9703dd848bf2439b400665a391828, type: 3}
-  click05: {fileID: 21300000, guid: 91aea2f72e6dba64381a1aa4b2bac9ca, type: 3}
-  click06: {fileID: 21300000, guid: 84ac8ad184d449241a67a6c149627a6b, type: 3}
-  click07: {fileID: 21300000, guid: bd748652588e85345b0232aacde80953, type: 3}
-  click08: {fileID: 21300000, guid: c4d1d7593c9074b409c5f841d8e84602, type: 3}
-  click09: {fileID: 0}
+  clickImagesArray:
+  - {fileID: 21300000, guid: c731142c338e7d248978f6bfbf683ae8, type: 3}
+  - {fileID: 21300000, guid: f826e4bcc9ee3674997446d197fb49a7, type: 3}
+  - {fileID: 21300000, guid: 5a417fc1a2d7533489aec580389dc0c9, type: 3}
+  - {fileID: 21300000, guid: e27d732c8ebd20640b8f43a68846389a, type: 3}
+  - {fileID: 21300000, guid: 17fa6725efeafee47ad4d2bb25a00a12, type: 3}
+  - {fileID: 21300000, guid: e7ce3306c8290a641907552938ac367c, type: 3}
+  - {fileID: 21300000, guid: b790f1949ebc01d49a8c1cdea40d5f3c, type: 3}
+  - {fileID: 21300000, guid: 6aae97e8e40cb254eb139b9b7cbeaa69, type: 3}
+  - {fileID: 21300000, guid: a2c03bd8e42de94458d72d15ae106548, type: 3}
+  - {fileID: 21300000, guid: 976c5f802e5d5d245a1efb1dfa26aa61, type: 3}
+  - {fileID: 21300000, guid: ceee55f4c8ab3184882206ec18219920, type: 3}
+  - {fileID: 21300000, guid: f3b5c64b4c5923a4bab3bc5162e7a0fd, type: 3}
+  - {fileID: 21300000, guid: bd2c49846e8cc7e42b3fb49f5d32b03a, type: 3}
+  - {fileID: 21300000, guid: 74880433b56419b418c88d4890a05fa9, type: 3}
+  - {fileID: 21300000, guid: e77ea6e751dd7f745823cd1c8a9befb3, type: 3}
+  - {fileID: 21300000, guid: a2db6c4eb127ef8438bdbbb11e7f1e31, type: 3}
+  - {fileID: 21300000, guid: f6d75789dc441e9449ac983a32f283ff, type: 3}
+  - {fileID: 21300000, guid: ecf36b86a1d923749bcb637f7ad29f1a, type: 3}
+  - {fileID: 21300000, guid: bc26ce4289c950349a91efab68088d49, type: 3}
+  - {fileID: 21300000, guid: b438548bf0a31344da720a0f0607e48d, type: 3}
+  - {fileID: 21300000, guid: 97ea1426ddef1404bb6123a8e0a917a4, type: 3}
+  - {fileID: 21300000, guid: 36797c62a20ee8a4bbf22eca7903bd23, type: 3}
+  - {fileID: 21300000, guid: 2bdbc33d9bf1ac045a3feeeeea789ac1, type: 3}
+  - {fileID: 21300000, guid: 3ddafaeee5f4c33408351212bed2b801, type: 3}
+  - {fileID: 21300000, guid: bdfed31843ed96449b887cbdb18878d3, type: 3}
   worm01: {fileID: 1658413016}
   worm02: {fileID: 21300000, guid: 9781f329f124ea945a81b4e1300c7813, type: 3}
   worm03: {fileID: 21300000, guid: 2cf7c1359f2341e42b7264de38eea9af, type: 3}
@@ -3602,8 +3620,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 421, y: 111}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: 323.41287, y: 90}
+  m_SizeDelta: {x: 650, y: 650}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &776323637
 MonoBehaviour:
@@ -4077,8 +4095,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 864.34, y: 625.2404}
-  m_SizeDelta: {x: 1076.7, y: 97.1292}
+  m_AnchoredPosition: {x: 811.82404, y: 623.9275}
+  m_SizeDelta: {x: 971.668, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &791688179
 MonoBehaviour:
@@ -5263,8 +5281,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 864.3447, y: 35.2818}
-  m_SizeDelta: {x: 1076.6895, y: 187.5}
+  m_AnchoredPosition: {x: 864.3447, y: -85}
+  m_SizeDelta: {x: 1076.6895, y: 44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &962823043
 MonoBehaviour:
@@ -5292,7 +5310,7 @@ MonoBehaviour:
     m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 14
-    m_MaxSize: 300
+    m_MaxSize: 50
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1

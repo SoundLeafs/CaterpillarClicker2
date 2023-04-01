@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     //Sprites
     public Image click01;
+  /*
     public Sprite click02;
     public Sprite click03;
     public Sprite click04;
@@ -34,6 +35,11 @@ public class GameManager : MonoBehaviour
     public Sprite click07;
     public Sprite click08;
     public Sprite click09;
+  Decided to use array instead because easier
+  */
+
+    //change sprites to an array
+    public Sprite[] clickImagesArray;
 
     public Image worm01;
     public Sprite worm02;
@@ -245,12 +251,20 @@ public class GameManager : MonoBehaviour
                 _skills2.SetActive(true);
                 _skills3.SetActive(true);
 
-                MonsterSize.monsterSize = 9;
-                click01.sprite = click09;
+                MonsterSize.monsterSize = 8;
+                click01.sprite = clickImagesArray[25];
                 worm01.sprite = worm09;
-            
-
                 break;
+
+
+            case > 235000:
+                click01.sprite = clickImagesArray[24];
+                break;
+
+            case > 220000:
+                click01.sprite = clickImagesArray[23];
+                break;
+
             case > 200000:
            
                 _showitem7.SetActive(true);
@@ -272,11 +286,19 @@ public class GameManager : MonoBehaviour
 
 
                 MonsterSize.monsterSize = 8;
-                click01.sprite = click08;
+                click01.sprite = clickImagesArray[22];
                 worm01.sprite = worm08;
-          
-
                 break;
+
+
+            case > 160000:
+                click01.sprite = clickImagesArray[21];
+                break;
+
+            case > 130000:
+                click01.sprite = clickImagesArray[20];
+                break;
+
             case > 100000:
                 _showitem7.SetActive(true);
                 _showitem6.SetActive(true);
@@ -296,11 +318,20 @@ public class GameManager : MonoBehaviour
 
 
                 MonsterSize.monsterSize = 7;
-                click01.sprite = click07;
+                click01.sprite = clickImagesArray[19];
                 worm01.sprite = worm07;
             
 
                 break;
+
+            case > 85000:
+                click01.sprite = clickImagesArray[18];
+                break;
+
+            case > 70000:
+                click01.sprite = clickImagesArray[17];
+                break;
+
             case > 50000:
                 _showitem6.SetActive(true);
                 _showitem5.SetActive(true);
@@ -318,11 +349,20 @@ public class GameManager : MonoBehaviour
 
 
                 MonsterSize.monsterSize = 6;
-                click01.sprite = click06;
+                click01.sprite = clickImagesArray[16];
                 worm01.sprite = worm06;
            
 
                 break;
+
+            case > 40000:
+                click01.sprite = clickImagesArray[15];
+                break;
+
+            case > 25000:
+                click01.sprite = clickImagesArray[14];
+                break;
+
             case > 10000:
                 _showitem5.SetActive(true);
                 _showitem4.SetActive(true);
@@ -337,11 +377,21 @@ public class GameManager : MonoBehaviour
                 _skills3.SetActive(true);
 
                 MonsterSize.monsterSize = 5;
-                click01.sprite = click05;
+                click01.sprite = clickImagesArray[13];
                 worm01.sprite = worm05;
               
 
                 break;
+
+            case > 8500:
+                click01.sprite = clickImagesArray[12];
+                break;
+
+            case > 7000:
+                click01.sprite = clickImagesArray[11];
+                break;
+
+
             case > 5000:
                 _showitem4.SetActive(true);
                 _showitem3.SetActive(true);
@@ -354,11 +404,18 @@ public class GameManager : MonoBehaviour
 
 
                 MonsterSize.monsterSize = 4;
-               click01.sprite = click04;
+               click01.sprite = clickImagesArray[10];
                 worm01.sprite = worm04;
-              
-
                 break;
+
+            case > 3500:
+                click01.sprite = clickImagesArray[9];
+                break;
+
+            case > 2000:
+                click01.sprite = clickImagesArray[8];
+                break;
+
             case > 500:
                 _showitem3.SetActive(true);
                 _showitem2.SetActive(true);
@@ -368,21 +425,35 @@ public class GameManager : MonoBehaviour
 
 
                 MonsterSize.monsterSize = 3;
-                click01.sprite = click03;
+                click01.sprite = clickImagesArray[7];
                 worm01.sprite = worm03;
-               
 
                 break;
+
+            case > 400:
+                click01.sprite = clickImagesArray[6];
+                break;
+
+            case > 200:
+                click01.sprite = clickImagesArray[5];
+                break;
+
+
+               
             case > 99:
                 _showitem2.SetActive(true);
                 _stage2.SetActive(true);
                 MonsterSize.monsterSize = 2;
-                click01.sprite = click02;
+                click01.sprite = clickImagesArray[4];
                 worm01.sprite = worm02;
-                
+                break;
 
+            case > 50:
+                click01.sprite = clickImagesArray[3];
+                break;
 
-
+            case > 25:
+                click01.sprite = clickImagesArray[2];
                 break;
 
         }
