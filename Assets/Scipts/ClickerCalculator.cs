@@ -46,6 +46,7 @@ public class ClickerCalculator : MonoBehaviour
     //Sprites for AutoEat, using gameobject to keep attached animation vs sprite
     public GameObject humanArmySprite;
     public GameObject insectArmySprite;
+    public GameObject armsSprite;
     public Transform parentTransform;
     //made a oublic canvas
     public Canvas canvas1;
@@ -54,6 +55,56 @@ public class ClickerCalculator : MonoBehaviour
     public Slider sliderSkill01;
     public Slider sliderSkill02;
     public Slider sliderSkill03;
+
+    //Caterpillar animations sprites
+    
+    [SerializeField] GameObject _showCater1;
+    
+    [SerializeField] GameObject _showCater2;
+   
+    [SerializeField] GameObject _showCater3;
+    
+    [SerializeField] GameObject _showCater4;
+    
+    [SerializeField] GameObject _showCater5;
+
+    public int unlock = 1;
+
+    //this function will set the caterpillar image based in what has been unlocked
+    public void SetCater()    
+    {
+        switch (unlock) 
+        {
+                case 1:
+               
+                break;
+
+                case 2:
+                //show 2nd image and hide first
+                _showCater2.SetActive(true);
+                _showCater1.SetActive(false);
+                break;
+
+                case 3:
+                _showCater3.SetActive(true);
+                _showCater2.SetActive(false);
+                break;
+
+                case 4:
+                //show 2nd image and hide first
+                _showCater4.SetActive(true);
+                _showCater3.SetActive(false);
+                break;
+
+                case 5:
+                //show 2nd image and hide first
+                _showCater5.SetActive(true);
+                _showCater4.SetActive(false);
+                break;
+
+        } 
+
+    }
 
     public void SetSlider01()
     {
@@ -214,9 +265,15 @@ public class ClickerCalculator : MonoBehaviour
 
         humanArmySprite.SetActive(false);
         insectArmySprite.SetActive(false);
-       
-        
-        
+        armsSprite.SetActive(false);
+        _showCater1.SetActive(true);
+        _showCater2.SetActive(false);
+        _showCater3.SetActive(false);
+        _showCater4.SetActive(false);
+        _showCater5.SetActive(false);
+
+
+
     }
 
     
@@ -445,6 +502,11 @@ public class ClickerCalculator : MonoBehaviour
                     src.Play();
                     item1Level++;
                     MouseOver(1);
+                    if (2>unlock)
+                    {
+                        unlock = 2;
+                        SetCater();    
+                    }
                 }
                 else
                 {
@@ -464,6 +526,11 @@ public class ClickerCalculator : MonoBehaviour
                     src.clip = sfx1;
                     src.Play();
                     MouseOver(2);
+                    if (3 > unlock)
+                    {
+                        unlock = 3;
+                        SetCater();
+                    }
                 }
                 else
                 {
@@ -511,6 +578,11 @@ public class ClickerCalculator : MonoBehaviour
                     src.Play();
                     item4level++;
                     MouseOver(4);
+                    if (4 > unlock)
+                    {
+                        unlock = 4;
+                        SetCater();
+                    }
                 }
                 else
                 {
@@ -551,6 +623,7 @@ public class ClickerCalculator : MonoBehaviour
                     src.Play();
                     item6Level++;
                     MouseOver(6);
+                    armsSprite.SetActive(true);
                 }
                 else
                 {
@@ -568,6 +641,11 @@ public class ClickerCalculator : MonoBehaviour
                     src.clip = sfx4;
                     src.Play();
                     MouseOver(7);
+                    if (5 > unlock)
+                    {
+                        unlock = 5;
+                        SetCater();
+                    }
                 }
                 else
                 {
